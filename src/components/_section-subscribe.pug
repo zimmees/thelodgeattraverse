@@ -1,0 +1,38 @@
+//- subscribe section
+section.section-style.parallax-bg#subscribe(data-background-image="/images/backgrounds/bg-conferenceRoom.jpg")
+    div.pattern.height-resize
+        div.container
+            h3.section-name
+                span Subscribe
+            h2.section-title Our Newsletter
+            p.section-description Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+            form.news-letter(action="php/subscribe.php" method="post")
+                div.subscribe-hide
+                    input.form-control(type="email" id="subscribe-email" name="subscribe-email" placeholder="Email Address"  required)
+                    buttn.btn(type="submit" id="subscribe-submit")
+                        i.fa.fa-envelope
+                    span.btn(id="subscribe-loading")
+                        i.fa.fa-refresh.fa-spin
+                    div.subscribe-error
+                div.subscribe-message
+
+            div.social-btn-container
+                span.social-btn-box
+                    a.facebook-btn(href="#")
+                        i.fa.fa-facebook
+
+                span.social-btn-box
+                    a.twitter-btn(href="#")
+                        i.fa.fa-twitter
+
+                span.social-btn-box
+                    a.linkedin-btn(href="#")
+                        i.fa.fa-linkedin
+
+                span.social-btn-box
+                    a.google-plus-btn(href="#")
+                        ifa.fa-google-plus
+
+                span.social-btn-box
+                    a.youtube-btn(href="#")
+                        i.fa.fa-youtube

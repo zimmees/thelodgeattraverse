@@ -1,0 +1,27 @@
+section#calendar.section-style.section-calendar.parallax-bg
+    .container
+        h2.section-name #[span Calendar &amp; Availability]
+        p.section-description #[strong Reserve your date:] Select a date to reserve it now.
+        #calendar-main.calendar
+            .calendar-toolbar.u-clearfix
+                h4.calendar-monthYear May
+                p.calendar-btns
+                    button.btn.btn-secondary.btn-clear.calendar-btn(data-action='today', type='button') Today
+                    button.btn.btn-clear.calendar-btn.fa.fa-chevron-left(data-action='prev', type='button')
+                    button.btn.btn-clear.calendar-btn.fa.fa-chevron-right(data-action='next', type='button')
+            .calendar-fullCalendar
+                p.calendar-loader
+                    span.fa.fa-spinner.fa-pulse
+                    |  Checking availability...
+            .box.box-clear.calendar-legend
+                p
+                    strong Calendar legend:
+                p
+                    span.calendar-legendSymbol
+                        span.fa.fa-check
+                    span.calendar-legendDescription Date Available (click to reserve)
+                p
+                    span.calendar-legendSymbol
+                        span.fa.fa-times
+                    span.calendar-legendDescription Date Unavailable
+    .pattern

@@ -1,0 +1,274 @@
+/**
+ * summer bridal fair 2016 (.fair)
+ */
+
+.fair {
+	color: #544b3d;
+	background-color: #f9f8f4;
+
+	&#page-top {
+		background-position-x: 52% !important;
+		background-repeat: no-repeat;
+		background-size: 2430px auto;
+		padding-bottom: 0;
+		padding-top: 0;
+
+		@media (min-width: 480px) {
+			background-position-x: 55% !important;
+		}
+		@media (min-width: 768px) {
+			background-position-x: 60% !important;
+			height: 80vh;
+			min-height: 0;
+			max-height: 697px;
+		}
+		@media (min-width: 1024px) {
+			background-position-x: 70% !important;
+		}
+
+		.section-buttons {
+			margin-bottom: 0;
+			margin-top: 0;
+
+			.btn {
+				margin-left: 0;
+				width: 100%;
+
+				@media (min-width: 768px) {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+
+	.container {
+		width: 100%;
+
+		@media (min-width: 768px) {
+			height: 100%;
+		}
+	}
+
+	.social-btn-container {
+		margin-top: 0;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		text-align: center;
+	}
+	.social-btn-box {
+		border-color: transparent;
+		height: 30px;
+		width: 30px;
+		margin: 20px 10px;
+
+		@media (min-width: 768px) {
+			margin: 0 10px;
+		}
+	}
+	.social-btn-container .social-btn-box a {
+		height: 40px;
+		width: 40px;
+		top: -5px;
+		left: -5px;
+		font-size: 18px;
+		line-height: 44px;
+	}
+	.social-btn-box .facebook-btn{
+		background:#3B5998;
+		&:hover {
+			background: lighten(#3B5998, 10%);
+		}
+	}
+	.social-btn-box .instagram-btn{
+		background:#3f729b;
+		&:hover {
+			background: lighten(#3f729b, 10%);
+		}
+	}
+	.social-btn-box .pinterest-btn{
+		background:#bd081c;
+		&:hover {
+			background: lighten(#bd081c, 10%);
+		}
+	}
+
+	.btn-clear {
+		border-color: #544b3d;
+		border-radius: 2px;
+		color: #544b3d;
+		font-size: 1.1em;
+		line-height: 3;
+
+		&:hover,
+		&:focus {
+			background-color: rgba(#e08ab9, .1);
+			outline-color: #e08ab9;
+			border-color: #e08ab9;
+			color: darken(#e08ab9, 30%);
+		}
+
+		.fa {
+			font-size: 1.3em;
+			margin-right: .2em;
+			vertical-align: middle;
+		}
+	}
+}
+
+.fair__logo {
+	margin-top: .5em;
+	text-align: center;
+
+	@media (min-width: 768px) {
+		position: absolute;
+		left: 1em;
+		top: .25em;
+	}
+
+	.logo-main img {
+		max-height: 60px;
+	}
+}
+
+.fair__title {
+	color: #b28537;
+	font-size: 4em;
+	font-family: 'parabola';
+	margin-top: .25em;
+	max-width: 3em;
+	float: right;
+	text-align: right;
+	line-height: .7;
+
+	& + .fair__heading {
+		clear: right;
+	}
+
+	@media (min-width: 768px) {
+		font-size: 3.5em;
+		position: absolute;
+		right: 110%;
+		top: 1.5em;
+		z-index: 1;
+	}
+	@media (min-width: 1024px) {
+		font-size: 5em;
+		top: .15em;
+	}
+}
+
+.fair__heading {
+	color: #b28537;
+	font-family: 'parabola';
+	font-size: 2em;
+}
+
+.fair__top {
+	display: flex;
+	justify-content: flex-end;
+	padding: 1em 0;
+	clear: both;
+
+	.fair__date-row {
+		display: flex;
+	}
+}
+
+.fair__brides-free {
+	border-radius: 50%;
+	background-color: #e08ab9;
+	color: #fff;
+	height: 4em;
+	width: 4em;
+	margin-top: .2em;
+	padding-top: .8em;
+	font-size: 1.25em;
+	text-transform: uppercase;
+	line-height: .8;
+	text-align: center;
+
+	strong {
+		font-family: 'BebasNeue';
+		font-size: 1.5em;
+	}
+}
+
+.fair__date-details {
+	color: #b28537;
+	font-size: 1.25em;
+	font-family: 'BebasNeue';
+	margin-left: 1.5em;
+	line-height: .9;
+	text-transform: uppercase;
+}
+	.fair__month {
+		font-size: 1.4em;
+	}
+	.fair__date {
+		font-size: 2.4em;
+		margin-left: -.05em;
+	}
+	.fair__day-time {
+		display: inline-block;
+		margin-left: .3em;
+	}
+	.fair__day {
+		font-size: 1.2em;
+	}
+	.fair__time {
+		font-size: .9em;
+		margin-left: -.1em;
+	}
+	.fair__location {
+		font-size: 1.2em;
+	}
+
+.fair__content {
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,.8) 100%);
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,.8) 100%);
+	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,.8) 100%);
+	line-height: 1.3;
+	padding-left: 1em;
+	padding-right: 1em;
+	width: 100%;
+	
+	@media (min-width: 768px) {
+		position: absolute;
+		// left: 40%;
+		right: 2em;
+		bottom: 0;
+		top: 0;
+		max-height: 100%;
+		min-width: 300px;
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+		width: 40%;
+	}
+
+	&:before {
+		// content: ' ';
+		// display: block;
+		position: absolute;
+		right: 100%;
+		top: 0;
+		bottom: 0;
+		width: 200px;
+		background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%);
+		background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
+		background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#d9ffffff',GradientType=1 );
+	}
+}
+
+.fair__details {
+	@media (min-width: 768px) {
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: calc(90px + 2.4em);
+		bottom: 0;
+		overflow-y: auto;
+	}
+}

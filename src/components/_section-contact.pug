@@ -1,0 +1,107 @@
+// Contact Section
+section#contact.section-style.no-parallax-bg
+    .container
+        h2.section-name
+            span Contact Us
+        form#contact-form.clearfix(action='contact-form.php', method='post', novalidate='')
+            .Row.Row--paddedSm
+                .field.Col768-1
+                    p What are you contacting us about?
+                    label.radio-inline
+                        input#radio-contact(type='radio', checked='checked', name='contact_reason_group', value='Ask a question')
+                        |  Ask a question
+                    label.radio-inline
+                        input#radio-tour(type='radio', name='contact_reason_group', value='Schedule a tour')
+                        |  Schedule a tour
+                    label.radio-inline
+                        input#radio-reserve(type='radio', name='contact_reason_group', value='Reserve a date')
+                        |  Reserve a date
+                    span.error-msg.fa.fa-exclamation-circle
+                .Col768-1-1.field-eventDate.spTop-0
+                    .Row.Row--paddedSm
+                        .field.Col768-1-2
+                            input#event_date.form-control.calendar-goto(type='text', data-calendar='calendar-callout', name='event_date', placeholder='Date to reserve')
+                            span.input-msg #[sup.fa.fa-asterisk] Required. Use #[kbd ↑] #[kbd ↓] keys to (+/-). Add #[kbd alt] to (+/-) a week.
+                            span.error-msg.fa.fa-exclamation-circle
+                            label.fa.fa-calendar.field-button(for="event_date")
+                            .field-callout
+                                div.calendar(id="calendar-callout")
+                                    .calendar-toolbar.u-clearfix
+                                        h4.calendar-monthYear
+                                        p.calendar-btns
+                                            button.btn.btn-secondary.btn-clear.btn-xs.calendar-btn(data-action='today', type='button') Today
+                                            button.btn.btn-clear.btn-xs.calendar-btn.fa.fa-chevron-left(data-action='prev', type='button')
+                                            button.btn.btn-clear.btn-xs.calendar-btn.fa.fa-chevron-right(data-action='next', type='button')
+                                    .calendar-fullCalendar
+                                        p.calendar-loader
+                                            span.fa.fa-spinner.fa-pulse
+                                            |  Checking availability...
+                        .Col768-1-2.reserveDisclaimer.spTop-0
+                            p.u-textSm
+                                sup **
+                                | Priority is given to online reservations, though not guaranteed until your deposit is verified.
+                .field.Col768-1-2
+                    input#first_name.form-control(type='text', name='first_name', required='', placeholder='First Name')
+                    span.input-msg
+                        sup.fa.fa-asterisk
+                        | Required
+                    span.error-msg.fa.fa-exclamation-circle
+                .field.Col768-1-2
+                    input#last_name.form-control(type='text', name='last_name', required='', placeholder='Last Name')
+                    span.input-msg
+                        sup.fa.fa-asterisk
+                        | Required
+                    span.error-msg.fa.fa-exclamation-circle
+                .field.Col768-1-2
+                    input#contact_email.form-control(type='email', name='contact_email', required='', placeholder='Email Address')
+                    span.input-msg
+                        sup.fa.fa-asterisk
+                        | Required (must be valid email address).
+                    span.error-msg.fa.fa-exclamation-circle(data-error-msg='Please enter a valid email address.')
+                    label.fa.fa-envelope.field-icon(for='contact_email')
+                .field.field-phone.Col768-1-2
+                    input#contact_phone.form-control(type='tel', name='contact_phone', required='', placeholder='Phone Number')
+                    span.input-msg
+                        sup.fa.fa-asterisk
+                        | Required (accepts numbers only).
+                    span.error-msg.fa.fa-exclamation-circle(data-error-msg='Please enter your phone number, numbers only.')
+                    label.fa.fa-phone.field-icon(for='contact_phone')
+                .u-hide
+                    input.form-control.field-blank(type='text', name='contact_url', required='', placeholder='URL')
+                .field.Col768-1
+                    textarea#message.form-control(rows='8', name='message', required='', placeholder='Message')
+                    span.input-msg
+                        sup.fa.fa-asterisk
+                        | Required
+                    span.error-msg.fa.fa-exclamation-circle
+                .field.Col768-1
+                    button#contact-submit.btn.btn-clear.btn-lg.custom-btn.u-textLg(type='submit', name='submit') #[i.fa.fa-paper-plane] Send #[span#contact-loading.btn.custom-btn #[i.fa.fa-refresh.fa-spin]]
+                    span.contact-errorMessage
+                        span.fa.fa-exclamation-triangle
+                        |  Please fix the errors and re-submit.
+            #contact-results
+            .section-map
+                .Row.Row--padded
+                    .Col768-1-2
+                        p.btn-map
+                            | Address:
+                            button.btn-map.btn.btn-clear.btn-secondary.sp-left(type='button')
+                                i.fa.fa-phone-square
+                                |  see map
+                        p.u-textLg.btn-map
+                            | 3940 Traverse Mountain Blvd
+                            br
+                            |                         Lehi, UT 84043
+                    .Col768-1-2
+                        p Call or text:
+                        p
+                            strong
+                                a.btn.btn-clear.btn-lg(href='tel:3852341406')
+                                    i.fa.fa-phone
+                                    |  (385) 234-1406
+            #google-map-wrap.google-map-wrap.box.box--outer.box--sm(title='Click anywhere in the map to start interacting with it.')
+                iframe#google-map.google-map(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12147.01596316403!2d-111.88018400000001!3d40.436446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87528017e6857351%3A0x15e98a8a5664045a!2s3940+Traverse+Mountain+Blvd%2C+Lehi%2C+UT+84043!5e0!3m2!1sen!2sus!4v1429571231234', frameborder='0', style='border:0')
+                button.btn.btn-text.btn-map--close.fa.fa-times-circle(type='button')
+    if enableContactFooter
+        include _footer
+    .pattern

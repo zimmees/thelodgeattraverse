@@ -1,0 +1,24 @@
+//- map section
+section#map.section-style.parallax-bg
+    div.container
+        h2.section-name
+            span Our Location
+
+        div.section-map
+            div.Row
+                div.Col768-1-2
+                    p Address:
+                    p.u-textLg 3940 Traverse Mountain Blvd
+                        br
+                        | Lehi, UT 84043
+                div.Col768-1-2
+                    p Phone (call or text):
+                    p
+                        strong
+                            a.btn.btn-clear.btn-lg.u-textLg(href="tel:3852341406")
+                                i.fa.fa-phone
+                                | (385) 234-1406
+            div.box.box--outer.box--sm.u-clearfix.sp-top(id="google-map-wrap" title="Click anywhere in the map to start interacting with it.")
+                iframe.google-map.u-noScroll(id="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12147.01596316403!2d-111.88018400000001!3d40.436446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87528017e6857351%3A0x15e98a8a5664045a!2s3940+Traverse+Mountain+Blvd%2C+Lehi%2C+UT+84043!5e0!3m2!1sen!2sus!4v1429571231234" frameborder="0" style="border:0")
+                span.input-msg.input-msg--right Click anywhere in the map to start interacting with it.
+    div.pattern

@@ -1,0 +1,60 @@
+---
+pageClass: page-analyticsOptOut
+disableAnalytics: true
+---
+extends layouts/main
+
+block content
+    div.section-style.section-notrack.no-parallax-bg
+        div.container
+            h1.section-name
+                a.logo-main(href="//traverselodge.com")
+                    img(src="images/logo-910x270--dark-bg.png" alt="The Lodge at Traverse Mountain, Lehi, Utah.")
+            p
+                em Current analytics status:
+                strong#analyticsOptOutStatus Checking...
+            p
+                button.btn.btn-lg.btn--primary.u-bgBlue#analyticsOptOutButton(type="button") Opt out of analytics tracking
+                | (remember: opt out once for each web browser you use)
+            div.u-textSm
+                p.sp-top--2x Analytics Opt Out Details:
+                p Analytics track visitors' behavior on this site (not personal information). This page allows you to disable (or later re-enable) analytics for your browser(s). This prevents analytics statistics becoming dilluted from visitors who are not actual end-users of this site (such as admins, site owner, developers, etc).
+                p To disable tracking:
+                ul
+                    li Visit this page for <em>each browser</em> you use to visit this site.
+                    li Click the "opt out" button. This disables tracking forever <em>for that web browser</em>.
+                    li Make sure to visit this page with each browser you use (mobile devices included).
+                    li Cookies need to <a class="u-linkWhite" href="https://www.google.com/?q=enable+cookies">be enabled</a> for this to work.
+                    li You can always visit this page and click the "opt in" button to re-enable tracking.
+    div.pattern
+
+block append scripts
+    script.
+        'use strict';
+        document.addEventListener('DOMContentLoaded', function (event) {
+            // Run on load
+            if (docCookies.hasItem('analyticsOptedOut')) {
+                setAnalyticsOptOut(true);
+            } else {
+                setAnalyticsOptOut(false);
+            }
+        });
+        function setAnalyticsOptOut(optedOut) {
+            if (optedOut) {
+                docCookies.setItem('analyticsOptedOut', 'true', Infinity);
+                document.getElementById('analyticsOptOutButton').innerHTML = 'Opt in to analytics';
+                document.getElementById('analyticsOptOutStatus').innerHTML = 'Opted out.';
+            } else {
+                docCookies.removeItem('analyticsOptedOut');
+                document.getElementById('analyticsOptOutButton').innerHTML = 'Opt out of analytics';
+                document.getElementById('analyticsOptOutStatus').innerHTML = 'Opted in.';
+            }
+        }
+        // Set button click handlers
+        document.getElementById('analyticsOptOutButton').addEventListener('click', function () {
+            if (docCookies.hasItem('analyticsOptedOut')) {
+                setAnalyticsOptOut(false);
+            } else {
+                setAnalyticsOptOut(true);
+            }
+        });

@@ -145,6 +145,10 @@ a:focus{
     text-transform:uppercase;
     font-weight:300;
     font-size:3.5em;
+
+    #page-top & {
+        font-size: 2.75em;
+    }
 }
 .section-description{
     font-size:18px;

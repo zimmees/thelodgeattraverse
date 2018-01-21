@@ -1,0 +1,15 @@
+## OS files
+.DS_Store
+
+## build files
+.tmp/
+build/
+build--backup/
+node_modules/
+src-old/
+vendor/
+assets/
+design/
+
+## IDE files
+*.sublime*

@@ -1,0 +1,261 @@
+THE LODGE @ TRAVERSE MOUNTAIN...
+
+NEXT:
+  ☐ Redirect traverselodge.com with Analytics @waiting
+  ✔ @high Fix order of templates. docCookies is not being init properly due to improper order. @bug @started(15-04-28 20:21)  @done (15-04-28 21:18) @lasted(0:57)
+  ✔ Combine all CSS and JS files @started(15-04-28 23:32) @done (15-05-10 22:19) @lasted(11 days, 22:47)
+  ✔ Set default spacing in Sublime for .todo files to 2 @done (15-04-29 14:58)
+  ✔ Don't want any dev files in the final build folder. Have "dev" assets (CSS & JS) compile to either /tmp directory or to same src files and have BrowserSync serve from there when on dev. @started(15-04-29 13:58) @done (15-05-10 22:19) @lasted(11 days, 8:21)
+
+  Add content:
+    ✔ @high Pricing & packaging @done (15-05-10 22:20)
+    ✔ @high Calendar @done (15-05-10 22:20)
+    ☐ About Ashley / event director
+    ☐ Add email update form
+    ☐ Add image gallery
+    ☐ @low Improve design of emails sent from php script
+    ☐ Analytics:
+        ☐ Track goals / form input / clicks
+        ☐ Figure out best practices for analytics [https://support.google.com/analytics/answer/1037445?hl=en]
+    ☐ Advertising page for 3rd party vendors.
+    ☐ Start SEO campaign...
+    ☐ Consider:
+      ☐ Displaying three months in calendar selector? [http://stackoverflow.com/questions/3392150/is-it-possible-to-display-two-three-months]
+
+  Optimizations:
+    ☐ Remove unused CSS (uncss)
+    ☐ Images to data URI (gulp-base64)
+    ☐ Reduce other requests
+    ☐ Refactor CSS to SASS
+    ☐ Use <picture> element to cut down on page weight for mobile
+    ☐ Refactor JS into modules [https://carldanley.com/js-module-pattern/]
+
+  Gulpfile:
+    What I want from my gulpfile build tool:
+      ✔ Compile HTML (Nunjucks or Handlebars or DOT) @done (15-04-28 00:27)
+      ✔ Include template partials @done (15-04-28 00:27)
+      ✔ Include repeated templates @done (15-04-28 00:27)
+      ✔ Compile data from JSON @done (15-04-28 00:27)
+      ✔ Compile data from YAML front matter @done (15-04-28 00:27)
+      ☐ Markdown support (tool called Showdown?) @started(15-04-28 00:28)
+      ✔ Prettify / minimize HTML @done (15-04-28 00:27)
+      ☐ Minify JS / CSS in HTML files
+      ✔ Compile SASS @done (15-04-28 00:27)
+      ✔ Autoprefix @done (15-04-28 00:27)
+      ☐ CSS lint
+      ✔ JS @done (15-04-28 00:27)
+      ✔ Concatenate files @done (15-04-28 00:27)
+      ✔ Minify files @done (15-04-28 00:27)
+      ✔ Run BrowserSync @done (15-04-28 00:27)
+      ✔ Live reload / inject CSS @done (15-04-28 00:27)
+      ✔ Multiple device server / debugger @done (15-04-28 00:27)
+      ☐ Automated with Bower dependencies
+      ☐ SVG icons / icon font
+      ☐ Automate documentation & stylesheets??
+      ☐ Automate testing.
+      ☐ Web components (polymer)
+      ☐ Vulcanize: build tool, packages web components into one file "include".
+      ☐ Move config to separate file. @bug
+      ☐ Look into performance issues with how long it takes the watch task to start up. See [https://discourse.roots.io/t/it-takes-a-long-time-for-gulp-to-start-building-in-watch-mode/3161]?
+      ☐ Due to handlebars cache, changing one HTML file or partial reloads ALL HTML files. Look into refreshing only handlebars cache.
+      ☐ Add flags for src and dest to run custom tasks.
+      ☐ FEATURE: Be able to flatten handlebars data (config.html.flattenData) with flattenData() (see previous functions created below).
+          function getData(path) {
+            return JSON.parse(fs.readFileSync(path, 'utf-8'));
+          }
+          function flattenData(file) {
+            var fileData = getData(file.path),
+              pageData,
+              fileName = path.basename(file.path),
+              fileDirs = path.relative('./src/data/', file.path).split(path.sep),
+              n = 0,
+              dirString = '',
+              dataString = '';
+            if (config.html.flattenIndexFiles && fileName === 'index.json') {
+              fileDirs.pop();
+            }
+            if (fileDirs.length > 0) {
+              dirString = JSON.stringify(fileDirs);
+              dataString = JSON.stringify(fileData);
+              n = fileDirs.length - 1;
+              pageData = dirString.replace(/.json/g, '').replace('[', '{').replace(/,/g, ': { ').replace(']', ': ' + dataString + '}');
+              for (var i = n; i > 0; i--) {
+                pageData += '}';
+              }
+              pageData = JSON.parse(pageData);
+            } else {
+              pageData = fileData;
+            }
+            if (config.html.flattenData) {
+              config.templateData = extend(true, fileData, pageData, config.templateData);
+            } else {
+              config.templateData = extend(true, pageData, config.templateData);
+            }
+          }
+      ☐ FEATURE: process markdown files, markdown partials, include markdown "posts" (all markdown files from glob), etc.
+      ☐ Look into other handlebars helpers:
+        ☐ [https://github.com/helpers/handlebars-helper-compose]
+        ☐ [https://github.com/helpers/handlebars-helper-post]
+        ☐ [https://www.npmjs.com/package/handlebars-helper-mdpartial]
+
+
+    Also considering / would like:
+      ☐ Possibly split out style and JS tasks to separate dev and prod tasks.
+      ☐ In getAssets() function, allow pipeline setting to be configurable and optimize code.
+      ☐ Change gulp clean task to sync files (keeping modified dates in tact hopefully) instead of remove
+      ☐ Consider brunch.io instead of gulp?
+      ☐ Move configuration to external json?
+      ☐ Automate bower packages.
+      ☐ Remove unused packages from package.json
+      ☐ Run tasks on changed files only.
+      ☐ Create SVG icon font / sprite (gulp-svg-sprite).
+      ☐ Support having assets included in DEV env only (remove on prod).
+      ☐ Use gulp-inject instead of useref?
+      ☐ Add support for bower 3rd-party vendor files. Should we use 'wiredep' to add bower includes automatically? Or put bower files in /vendors? Or move bower files to their css/js folders?
+      ☐ Figure out why browsersync is reloading and running tasks twice?
+      ☐ Separate tasks into files??
+      ☐ Create or update yeoman project for a starter site.
+      ☐ Integrate with gulp-starter?
+      ☐ Add support for polymer / web components?
+      ☐ Support LESS and Stylus?
+      ☐ Add support for other templating languages (nunchucks, etc)?
+      ☐ Closer compiler: JS compiler that compiles and minifyies your JS to better JS (by Google)
+      ☐ Browserify?
+      ☐ Asset revisioning
+      ☐ AWS S3 deployment
+      ☐ gzip file compression to avoid server overhead (see pako for gulp implementation)
+      ☐ PageSpeed
+      ☐ Tool that creates paths for directory and file (i.e., stylesheet.html and /stylsheet)
+      ☐ Tool that lists tasks?
+      ☐ http://www.mikestreety.co.uk/blog/an-advanced-gulpjs-file
+      ☐ https://cdnify.com/blog/top-10-gulp-tasks-for-optimising-front-end-performance/
+      ☐ http://ilikekillnerds.com/2014/11/10-highly-useful-gulp-js-plugins-for-a-super-ninja-front-end-workflow/
+      ☐ http://blog.nodejitsu.com/npmawesome-9-gulp-plugins/
+
+
+CREATE BUMP:
+  BUMP's build tool / gulpfile:
+    ☐ Fix BrowserSync issues
+    ☐ Run tasks on files that change
+    ☐ Get rid of useref in favor of concat
+    ☐ Version for assets (gulp)
+    ☐ Minify SVG images and create spritesheets (gulp-svgmin || gulp-sprite)
+    ☐ Convert images to webp? (gulp-webp)
+    ☐ Combine media queries? (gulp-combine-media-queries)
+    ☐ gulp-closure-compiler for JS
+    ☐ Currently $.spa process each HTML src glob separately. Add support to...
+      ☐ Combine ALL assets found in ALL *.{html,hbs,md} files to one file? This is how I had it:
+        function assets() {
+        // Reset asset globs.
+        config.jsFiles = [];
+        config.cssFiles = [];
+        return gulp.src('./src/**/*.{md,hbs}')
+          .pipe($.spa.html({
+            assetsDir: './src/',
+            pipelines: {
+              js: function (files) {
+                return files
+                  .pipe($.tap(function (file) {
+                    config.jsFiles.push(file.path);
+                  }));
+              },
+              css: function (files) {
+                return files
+                  .pipe($.tap(function (file) {
+                    config.cssFiles.push(file.path);
+                  }));
+              }
+            }
+          }))
+          .on('end', function () {
+            styles(config.cssFiles);
+            scripts(config.jsFiles);
+          });
+       }
+    ☐ Combine assets in each *.{html,hbs,md} file to a separate asset file? (probably not)
+  Create the BUMP baseline:
+    ☐ Vertical Rhythm (from Compass)
+    ☐ Baseline element styles
+    ☐ Fonts
+    ☐ Create git repo and add as a private BitBucket repo
+  Create BUMP Modules:
+
+REFERENCE:
+  ☐ Facebook: [http://www.facebook.com/thelodgeattraverse/]
+  ☐ Pinterest: [https://www.pinterest.com/traverselodge/]
+  ☐ Possible gulpfile improvements: [http://yeoman.io/blog/performance-optimization.html]
+  ☐ Analytics URL Builder: [https://support.google.com/analytics/answer/1033867?hl=en]
+  ☐ iFit job interview: [http://careers.stackoverflow.com/jobs/35786/senior-javascript-developer-ifit?utm_source=stackoverflow.com&utm_medium=ad&utm_campaign=jobs-small-sidebar-orange-looking]
+
+  Gulpfile:
+    ☐ Gulp 4 docs: [https://github.com/gulpjs/gulp/blob/4.0/docs/README.md], [https://github.com/gulpjs/gulp/tree/4.0], [https://github.com/gulpjs/gulp/tree/master/docs/recipes]
+    ☐ Helpful node info:
+      ☐ Node Path: [https://nodejs.org/api/path.html]
+      ☐ Node File System: [https://nodejs.org/api/fs.html]
+
+    ☐ Sample gulpfiles:
+      ☐ [https://gist.github.com/demisx/beef93591edc1521330a]
+      ☐ [https://gist.github.com/ToddSmithSalter/fbb7d337b134c3a9affa]
+      ☐ [http://www.valdelama.com/useful-gulp-recipes]
+
+    ☐ Possible plugins to use:
+      ☐ Gulp-watch: [https://github.com/floatdrop/gulp-watch/blob/master/docs/readme.md]
+      ☐ chalk: [https://github.com/sindresorhus/chalk]
+      ☐ logger
+    ☐ How to install gulp 4: [http://demisx.github.io/gulp4/2015/01/15/install-gulp4.html]
+    ☐ Tutorial of migrating to Gulp 4: [https://blog.wearewizards.io/migrating-to-gulp-4-by-example]
+
+  Cool projects:
+    ☐ [https://github.com/yeoman/generator-gulp-webapp]
+    ☐ [https://github.com/yeoman/generator-polymer]
+    ☐ [https://github.com/StartPolymer/polymer-starter-kit]
+    ☐ [https://github.com/NicoArbogast/generator-polymer-gulp]
+    ☐ [https://github.com/addyosmani/polymer-browserify-vulcanize]
+
+  Templating:
+    ☐ http://mozilla.github.io/nunjucks/
+    ☐ https://www.polymer-project.org/0.5/
+
+  Boilerplates:
+    ☐ http://yeoman.io/
+
+  Sublime packages:
+    ☐ Package control
+    ☐ Git
+    ☐ GitGutter
+    ☐ Emmet
+    ☐ Terminal (opens terminal in current directory)
+    ☐ ColorPicker
+    ☐ MarkdownPreview & MarkdownEditing OR Markdown Extended (preview md files and see cheatsheet, etc)
+    ☐ DocBlockr
+    ☐ SassBuilder?
+    ☐ SublimeLinter (JS, CSS)
+    ☐ SidebarEnhancements
+    ☐ PackageResourceViewer (allows you to easily edit package resources and copy them to user for permanent save)
+    ☐ CSSComb (Sorts CSS properties)
+    ☐ CanIUse?
+    ☐ Themes:
+      ☐ Soda
+      ☐ SpaceGray
+      ☐ Centurion
+      ☐ Brogrammer?
+    ☐ Snippets:
+      ☐ Foundation
+      ☐ Bootstrap 3
+      ☐ Bootstrap 3 for Jade
+      ☐ jQuery mobile
+      ☐ HTML5 boilerplate
+    ☐ Additional syntax support for LESS, SASS, SCSS, Stylus, Jade, etc.
+    ☐ SublimeCodeIntel?
+    ☐ HTML5?
+    ☐ SFTP?
+    ☐ LiveReload?
+    ☐ HTML-CSS-JS Prettify?
+    ☐ HTMLBeautify?
+    ☐ Autoprefixer?
+    ☐ Fetch?
+    ☐ PlainTasks
+    ☐ LiveStyle? & Browser Refresh? (not sure of the name)
+    ☐ Handlebars?
+    ☐ JavaScript & node snippets
+    ☐ Origami? (window / layout management)

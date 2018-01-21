@@ -1,0 +1,7 @@
+{
+    "preset": "google",
+    "extract": ["*.htm", "*.html"],
+    "disallowMultipleLineBreaks": false,
+    "maximumLineLength": false,
+    "validateIndentation": 4
+}

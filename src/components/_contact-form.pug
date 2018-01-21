@@ -1,0 +1,22 @@
+form.Form.Form--stacked(action='contact-form.php', method='post')
+    fieldset
+        legend Send us a message:
+        .Grid.Grid--gutters
+            .Grid-cell.u-w100.u-w50--desktop
+                label(for='contactFirstName') First Name
+                input#contactFirstName(type='text', name='contactFirstName')
+            .Grid-cell.u-w100.u-w50--desktop
+                label(for='contactLastName') Last Name
+                input#contactLastName(type='text', name='contactLastName')
+            .Grid-cell.u-w100
+                label(for='contactEmail') Email
+                input#contactEmail(type='text', name='contactEmail', placeholder='email@example.com')
+                input#contactEmailAddress.u-displayNone(type='text', name='contactEmailAddress')
+            .Grid-cell.u-w100
+                label(for='contactMessage') Message
+                textarea#contactMessage(name='contactMessage', cols='30', rows='10', placeholder='Penny for your thoughts?')
+            .Grid-cell.u-w100
+                button.Button(type='submit') Send
+                label.u-displayInlineBlock(for='contactMailingList')
+                    input#contactMailingList(type='checkbox', name='contactMailingList', checked='checked')
+                    |  Receive email updates?

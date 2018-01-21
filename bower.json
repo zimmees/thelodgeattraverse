@@ -1,0 +1,27 @@
+{
+  "name": "thelodgeattraverse",
+  "authors": [
+    "The Zimmee <thezimmee@gmail.com>"
+  ],
+  "description": "The Lodge at Traverse Mountain",
+  "main": "",
+  "license": "MIT",
+  "homepage": "thelodgeattraverse.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "fullcalendar": "2.3.1",
+    "jquery": "2.1.4",
+    "moment": "2.10.2",
+    "font-awesome": "fontawesome#^4.6.3",
+    "WebFont-OpenSans": "webfont-opensans#^0.0.2",
+    "bootstrap": "3.1.1"
+  }
+}

@@ -1,0 +1,38 @@
+/**
+ * abstracts (does not produce actual css)
+ */
+
+
+/**
+ * vendor files
+ */
+/** font awesome partials */
+	@import "../../vendor/font-awesome/scss/variables";
+	@import "../../vendor/font-awesome/scss/mixins";
+	@import "../../vendor/font-awesome/scss/core";
+	@import "../../vendor/font-awesome/scss/larger";
+	@import "../../vendor/font-awesome/scss/fixed-width";
+	@import "../../vendor/font-awesome/scss/list";
+	@import "../../vendor/font-awesome/scss/bordered-pulled";
+	@import "../../vendor/font-awesome/scss/animated";
+	@import "../../vendor/font-awesome/scss/rotated-flipped";
+	@import "../../vendor/font-awesome/scss/stacked";
+	@import "../../vendor/font-awesome/scss/icons";
+	@import "../../vendor/font-awesome/scss/screen-reader";
+/** bootstrap */
+@import "../../vendor/bootstrap/dist/css/bootstrap";
+
+/**
+ * base
+ */
+
+/**
+ * components
+ */
+@import "style";
+@import "mystyles";
+@import "../components/section-bridal-fair";
+
+/**
+ * views & pages
+ */

@@ -8,27 +8,6 @@
 		padding-top: 0;
 	}
 
-	.section-buttons {
-		margin: 1em 0 !important;
-
-		.btn {
-			margin-left: 0;
-			width: 100%;
-
-			&:first-child {
-				margin-top: 0;
-			}
-
-			@media (min-width: 768px) {
-				margin-top: 0.5em;
-			}
-		}
-
-		@media (min-width: 768px) {
-			margin: 2em 0 !important;
-		}
-	}
-
 	.btn-clear {
 		border-color: #544b3d;
 		border-radius: 2px;
@@ -80,6 +59,49 @@
 	.social-btn-box a:hover,
 	.social-btn-box a:focus {
 		opacity: 0.7;
+	}
+}
+
+.fair__buttons {
+	width: 100%;
+
+	.btn {
+		display: flex;
+		justify-content: center;
+		margin: 0 0 0.25em 0;
+		padding: 0 0.25em;
+		height: 2em;
+		font-size: 1em;
+		line-height: 2em;
+		text-align: center;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.fa {
+		font-size: 1em !important;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@media (min-width: 900px) {
+		display: flex;
+		justify-content: center;
+
+		.btn {
+			flex-basis: 33.33333%;
+
+			+ .btn {
+				margin-left: 0.5em;
+			}
+		}
+
+		&--two .btn {
+			flex-basis: 50%;
+		}
 	}
 }
 

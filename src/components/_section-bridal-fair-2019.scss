@@ -9,15 +9,23 @@
 	}
 
 	.section-buttons {
-		margin: 0 !important;
+		margin: 1em 0 !important;
 
 		.btn {
 			margin-left: 0;
 			width: 100%;
 
-			@media (min-width: 768px) {
-				margin-top: 10px;
+			&:first-child {
+				margin-top: 0;
 			}
+
+			@media (min-width: 768px) {
+				margin-top: 0.5em;
+			}
+		}
+
+		@media (min-width: 768px) {
+			margin: 2em 0 !important;
 		}
 	}
 
@@ -49,6 +57,9 @@
 	}
 
 	.social-btn-box {
+		height: 40px;
+		width: 40px;
+		margin: 10px;
 		border: 0 !important;
 	}
 	.social-btn-box .instagram-btn {
@@ -61,6 +72,9 @@
 		background: #bd081c;
 	}
 	.social-btn-box a {
+		height: 64px;
+		width: 64px;
+		line-height: 64px;
 		transition: opacity 0.2s ease-in-out;
 	}
 	.social-btn-box a:hover,
@@ -107,7 +121,7 @@
 
 @media (min-width: 768px) {
 	.fair__details {
-		max-width: 50%;
+		max-width: 60%;
 	}
 }
 @media (min-width: 900px) {
@@ -126,6 +140,14 @@
 	align-items: center;
 	justify-content: flex-end;
 	flex-grow: 1;
+
+	@media (min-width: 768px) {
+		margin-top: -0.5em;
+	}
+
+	@media (min-width: 1200px) {
+		margin-top: -1em;
+	}
 }
 
 .fair__logo {
@@ -135,21 +157,27 @@
 }
 
 .fair__title {
+	color: hsl(38, 53%, 40%);
 	font-family: "parabola";
 	font-size: 2.2em;
-	text-align: center;
 	margin-top: 0.2em;
+	margin-left: 0.4em;
 
 	@media (min-width: 560px) {
 		font-size: 3em;
 	}
 
 	@media (min-width: 768px) {
-		font-size: 2em;
+		font-size: 2.2em;
 	}
 
 	@media (min-width: 900px) {
-		font-size: 3em;
+		font-size: 2.5em;
+		margin-left: 0.2em;
+	}
+
+	@media (min-width: 1200px) {
+		font-size: 3.4em;
 	}
 }
 
@@ -176,7 +204,6 @@
 }
 
 .fair__date-details {
-	color: hsl(38, 53%, 40%);
 	font-size: 1.25em;
 	font-family: "BebasNeue";
 	margin-left: 1em;

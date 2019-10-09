@@ -5,6 +5,7 @@
 .tmp/
 build/
 build--backup/
+backup/
 node_modules/
 src-old/
 vendor/

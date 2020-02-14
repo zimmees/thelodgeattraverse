@@ -157,6 +157,11 @@ input[type='checkbox'] {
 	background-color: transparent;
 	border-color: #fff;
 }
+.btn-dark {
+	background-color: transparent;
+	border-color: #000;
+	color: #000;
+}
 .btn:hover,
 .btn:focus {
 	background-color: #66aef3;
@@ -626,6 +631,67 @@ input[type='checkbox'] {
 	font-weight: bold;
 	text-transform: none;
 	text-align: left;
+}
+.faq .box-subtitle {
+	margin-top: 40px;
+	padding-bottom: 20px;
+	padding-top: 10px;
+	border-top: 2px dotted rgba(0, 0, 0, 0.2);
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.faq .box-subtitle:first-of-type {
+	margin-top: 20px;
+}
+.faq-vendor {
+	display: flex;
+	align-items: center;
+	height: 140px;
+}
+.faq-vendor + .faq-vendor {
+	margin-top: 10px;
+}
+.faq-vendor__info {
+	padding-left: 40px;
+}
+.faq-vendor__name {
+	display: block;
+	margin-top: -15px;
+	margin-bottom: 5px;
+	color: #000;
+	font-size: 24px;
+	line-height: 1.1;
+	text-decoration: none;
+}
+.faq-vendor__logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	max-height: 100%;
+	width: 200px;
+}
+.faq-vendor__logo--border {
+	border: 1px solid #ddd;
+}
+.faq-vendor__logo--light {
+	background-color: #fff;
+}
+.faq-vendor__logo--dark {
+	background-color: #6d716f;
+}
+.faq-vendor__logo--top {
+	align-items: flex-start;
+}
+.faq-vendor__logo svg,
+.faq-vendor__logo img {
+	height: 100%;
+	width: 100%;
+}
+.faq-vendor__logo--fit svg,
+.faq-vendor__logo--fit img {
+	height: 140px;
+	width: 140px;
 }
 
 /** CALENDAR --------------------*/

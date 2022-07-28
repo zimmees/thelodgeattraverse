@@ -1,0 +1,45 @@
+/**
+ * Common styles used throughout.
+ *
+ * @author Tyson Zimmerman <tysonzimmerman.com>
+ * @date 2022-07
+ *
+ * ---
+ *
+ * !IMPORTANT: ORDER MATTERS. Stylesheets must be imported in the following
+ * order:
+ *  1. CONFIGURATIONS: Styles which do not apply actual CSS (i.e., variables,
+ *     mixins).
+ *  2. RESETS: Styles which reset built-in HTML elements.
+ *  3. COMPONENTS: CSS classes for global components.
+ *  4. PATTERNS: Patterns are components which are more specific to an
+ *     application or feature.
+ *  5. UTILITIES: CSS utility classes which apply specific utility styles.
+ *  6. PAGES: Styles for specific pages. These take precendence over all others.
+ */
+
+/** CONFIGURATIONS ---------------------------------------------------------- */
+@import '../../config/index.css';
+
+/** RESETS ------------------------------------------------------------------ */
+@import '../reset/index.css';
+
+/** COMPONENTS -------------------------------------------------------------- */
+@import '../rhythm/index.css';
+@import '../button/button.css';
+@import '../card/card.css';
+@import '../copy-card/copy-card.css';
+@import '../form/form.css';
+@import '../form/input.css';
+@import '../form/toggle.css';
+@import '../heading/heading.css';
+@import '../media/media.css';
+@import '../section/section.css';
+@import '../../patterns/footer/footer.css';
+
+/** UTILITIES --------------------------------------------------------------- */
+@import '../display/display.utility.css';
+@import '../display/flex.utility.css';
+@import '../sizing/sizing.utility.css';
+@import '../spacing/spacing.utility.css';
+@import '../text/text.utility.css';

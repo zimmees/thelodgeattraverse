@@ -1,0 +1,133 @@
+/* stylelint-disable selector-type-no-unknown */
+.style-guide {
+  padding: 1rem;
+}
+
+.dark-mode {
+  background-color: var(--c-dark2, #333);
+}
+
+/** HEADER -------------------------------------------------------------------*/
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 2rem;
+  margin: -1rem -1rem 0;
+  padding: 0 1rem;
+  transition-property: background-color, box-shadow, backdrop-filter;
+  will-change: background-color, box-shadow;
+  transition-duration: 0.3s;
+
+  .--scrolled & {
+    color: var(--c-text-dark, hsl(0, 0%, 6%));
+    background-color: hsla(100, 100%, 100%, 0.5);
+    box-shadow: var(--shdw-2);
+    backdrop-filter: blur(0.25rem);
+  }
+}
+
+.toggle--rhythm .toggle__off {
+  position: relative;
+
+  &:before {
+    box-sizing: content-box;
+    content: '';
+    width: calc(1.4 * 100%);
+    height: 1px;
+    background-color: var(--c-black, #000);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    z-index: 1;
+    transform: rotate(45deg);
+    transform-origin: top left;
+  }
+}
+
+/** PALETTE ------------------------------------------------------------------*/
+.palette,
+.palette--large {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  .copy-card__content {
+    padding: 0;
+  }
+
+  .copy-card__label {
+    line-height: 1.3;
+    height: 1.5rem;
+    text-align: center;
+  }
+}
+
+.palette--large {
+  ldg-copy-card {
+    flex-basis: 5rem;
+  }
+
+  .copy-card__content {
+    height: 3rem;
+  }
+}
+
+.palette__color {
+  height: 100%;
+  width: 100%;
+}
+
+.palette__label {
+  font-weight: bold;
+}
+
+/** LOGOS --------------------------------------------------------------------*/
+.logos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  & .copy-card {
+    flex-basis: auto;
+    height: 6rem;
+    min-width: 4rem;
+  }
+
+  & .dark .copy-card__content {
+    background-color: var(--c-bg-dark, #000);
+  }
+
+  & .light .copy-card__content {
+    background-color: var(--c-bg-light, #fff);
+  }
+
+  & .wide {
+    width: 10rem;
+  }
+
+  & svg {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+/** ICONS --------------------------------------------------------------------*/
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  ldg-copy-card {
+    height: 3rem;
+    flex-basis: 3rem;
+  }
+}

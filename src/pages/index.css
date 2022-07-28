@@ -1,0 +1,31 @@
+@import '../patterns/about/about.css';
+@import '../patterns/book/book.css';
+@import '../patterns/contact/contact-button.css';
+@import '../patterns/contact/contact.css';
+@import '../patterns/faq/faq.css';
+@import '../patterns/follow/follow.css';
+@import '../patterns/footer/footer.css';
+@import '../components/logo/logo.css';
+@import '../patterns/services/services.css';
+@import '../patterns/top/top.css';
+@import '../patterns/vendors/vendors.css';
+
+#services {
+  background-image: url('/assets/backgrounds/bg-amenities.jpg');
+}
+
+#vendors {
+  background-image: url('/assets/backgrounds/bg-wedding--bright-cake.jpg');
+}
+
+#faq {
+  background-image: url('/assets/backgrounds/bg-just-married.jpg');
+}
+
+#book {
+  background-image: url('/assets/backgrounds/bg-exterior.jpg');
+}
+
+#contact {
+  background-image: url('/assets/backgrounds/bg-contact.jpg');
+}

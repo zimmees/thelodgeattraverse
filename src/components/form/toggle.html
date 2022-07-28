@@ -1,0 +1,28 @@
+<label class="toggle<%= classes ? ` ${classes}` : '' %>" for="<%= id %>">
+  <input class="toggle__input" type="checkbox" id="<%= id %>" name="<%= id %>" />
+  <span class="toggle__switch">
+    <%_ if (typeof on !== 'undefined' || typeof onIcon !== 'undefined') { _%>
+    <span class="toggle__on">
+      <% if (typeof on !== 'undefined') { _%>
+      <%- on _%>
+      <%_ } _%>
+      <% if (typeof onIcon !== 'undefined') { _%>
+      <%- include(onIcon + '.svg') _%>
+      <%_ } %>
+    </span>
+    <%_ } _%>
+    <%_ if (typeof off !== 'undefined' || typeof offIcon !== 'undefined') { _%>
+    <span class="toggle__off">
+      <% if (typeof off !== 'undefined') { _%>
+      <%- off _%>
+      <%_ } _%>
+      <% if (typeof offIcon !== 'undefined') { _%>
+      <%- include(offIcon + '.svg') _%>
+      <%_ } %>
+    </span>
+    <%_ } _%>
+  </span>
+  <% if (typeof label !== 'undefined') { _%>
+  <span class="toggle__label"></span>
+  <%_ } %>
+</label>

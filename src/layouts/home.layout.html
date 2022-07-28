@@ -1,0 +1,69 @@
+---
+title: The Lodge at Traverse Mountain - Lehi, Utah. Your event center for weddings, receptions, luncheons, parties, business meetings, and family events.
+description: ''
+type: ''
+url: ''
+image: ''
+themeColor: '#fafafa'
+classes: ''
+id: ''
+---
+
+<% const layout = 'layouts/home.layout.html' _%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge;chrome=1" />
+    <meta name="p:domain_verify" content="f6e8e9075e3c052f4bcb9a8001f40578" />
+    <title><%= title %></title>
+    <meta
+      name="description"
+      content="<%= typeof description === 'string' ? description : title %>"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content="<%= title %>" />
+    <% if (type) { %>
+    <meta property="og:type" content="<%= type %>" />
+    <% } _%>
+    <% if (url) { %>
+    <meta property="og:url" content="<%= url %>" />
+    <% } _%>
+    <% if (image) { %>
+    <meta property="og:image" content="<%= image %>" />
+    <% } _%>
+
+    <link rel="icon" href="<%= toRoot %>favicon.png" sizes="any" />
+    <!-- @TODO: <link rel="icon" href="./icon.svg" type="image/svg+xml"> -->
+    <link rel="apple-touch-icon" href="<%= toRoot %>apple-touch-icon.png" />
+    <!-- <link rel="image_src" href="./images/logo-270x1000.png"> -->
+    <!-- <link rel="image_src" href="./images/tile-wide.png"> -->
+    <!-- <link rel="image_src" href="./images/apple-touch-icon.png"> -->
+
+    <%- include('fonts/font-links.html') %>
+    <% if (typeof stylesheets !== 'undefined' && stylesheets.length) { _%>
+    <%_ stylesheets.forEach(src => { _%>
+    <link rel="stylesheet" type="text/css" href="<%= src %>" />
+    <%_ }) _%>
+    <%_ } %>
+
+    <link rel="manifest" href="<%= toRoot %>site.webmanifest" />
+    <% if (themeColor) { %>
+    <meta name="theme-color" content="<%= themeColor %>" />
+    <% } _%>
+  </head>
+  <body class="<%= classes %>" id="<%= id %>">
+    <%- slots.header %>
+
+    <%- slots.body %>
+
+    <%- slots.footer %>
+
+    <%_ if (typeof scripts !== 'undefined' && scripts.length) { %>
+    <%_ scripts.forEach(src => { _%>
+    <script type="module" src="<%= src %>"></script>
+    <%_ }) _%>
+    <%_ } %>
+  </body>
+</html>

@@ -1,0 +1,191 @@
+/*
+ * Fields reset
+ * ------------
+ */
+input,
+optgroup,
+select,
+textarea {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  /* Align to vertical rhythm. */
+  line-height: 1rem;
+  height: 1.5rem;
+  /* Reset horizontal padding. */
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+input {
+  overflow: visible;
+}
+
+select {
+  text-transform: none;
+  cursor: pointer;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+/*
+ * Fieldsets
+ * ---------
+ */
+fieldset {
+  border-width: 0;
+  border-top-width: 1px;
+  padding: calc(0.5rem - 1px) 0.5rem 1rem;
+}
+
+legend {
+  /*  box-sizing: border-box;*/
+  /*  color: inherit;*/
+  /*  display: block;*/
+  /*  max-width: 100%;*/
+  padding: 0 0.25rem 1px;
+  /*  white-space: normal;*/
+}
+
+/*
+ * Text inputs
+ * -----------
+ */
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='tel'],
+input[type='url'],
+input[type='date'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='password'],
+input[type='search'],
+input[list],
+textarea,
+select {
+  /* Put into doc flow. */
+  display: block;
+  /* Fill to width of container. */
+  width: 100%;
+  /* Reset colors. */
+  background-color: hsla(100, 100%, 100%, 0.3);
+  backdrop-filter: blur(3px);
+  color: var(--c-white);
+  border: 1px solid hsla(100, 100%, 100%, 0.8);
+  will-change: border-color, background-color, color;
+  transition-property: border-color, background-color, color;
+  transition-duration: 0.5s;
+  font-weight: bold;
+
+  /* svg icons. */
+  svg,
+  path {
+    fill: currentColor;
+  }
+
+  &:focus {
+    border-color: #fff;
+    background-color: hsla(100, 100%, 100%, 0.8);
+    color: var(--c-dark1);
+    outline: 2px solid var(--c-outline);
+    outline-offset: 1px;
+
+    &::placeholder {
+      color: var(--c-dark1);
+    }
+  }
+}
+
+::placeholder {
+  color: var(--c-white);
+  font-weight: normal;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+input[type='number'],
+input[list] {
+  /* Set padding-right to 0 to not interfere with the built-in controls. */
+  padding-right: 0;
+  line-height: revert;
+}
+
+/* Checkboxes + radios
+ * -------------------
+ */
+input[type='checkbox'],
+input[type='radio'] {
+  outline-color: var(--c-outline);
+}
+input[type='radio'] {
+  outline-offset: 0;
+}
+
+/* Other inputs
+ * ------------
+ */
+input[type='color'] {
+  /* Align to vertical rhythm. */
+  height: 1rem;
+  /* Fix inline-block gap below. */
+  display: block;
+  float: left;
+}
+
+input[type='file'] {
+  /* Align to vertical rhythm. */
+  box-sizing: border-box;
+  display: block;
+  height: 1rem;
+  line-height: 0.8rem;
+}
+
+/* Text area
+ * ---------
+ */
+textarea {
+  /* Auto height to support multiple lines. */
+  height: auto;
+  /* Align rows to vertical rhythm. */
+  line-height: 1rem;
+  /* Set vertical padding and align to vertical rhythm. */
+  padding-bottom: calc(0.25rem - 2px);
+  padding-top: calc(0.25rem - 2px);
+}

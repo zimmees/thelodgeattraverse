@@ -1,0 +1,11 @@
+@import '../../patterns/book/book.css';
+@import '../../patterns/contact/contact-button.css';
+@import '../../patterns/contact/contact.css';
+
+#book {
+  background-image: url('/assets/backgrounds/bg-exterior.jpg');
+}
+
+#contact {
+  background-image: url('/assets/backgrounds/bg-contact.jpg');
+}

@@ -1,0 +1,1158 @@
+---
+layout: layouts/home.layout.html
+toRoot: ../../
+stylesheets:
+  - ../../components/common/index.css
+  - ./index.css
+scripts:
+  - ./index.js
+title: Style Guide - The Lodge at Traverse Mountain
+classes: style-guide dark-mode
+theme:
+  Brand:
+    - lodge-brown
+    - lodge-black
+    - lodge-gray
+    - lodge-pink
+    - lodge-purple
+  Theme:
+    - error
+    - warning
+    - success
+    - info
+    - instagram
+    - facebook
+    - pinterest
+  Neutrals:
+    - black
+    - dark1
+    - dark2
+    - dark3
+    - dark4
+    - dark5
+    - light5
+    - light4
+    - light3
+    - light2
+    - light1
+    - white
+logos:
+  - name: the-lodge-icon
+    label: The Lodge
+    classes: icon
+  - name: the-lodge-circle
+    label: The Lodge circle icon
+    classes: icon
+  - name: the-lodge-logo
+    label: The Lodge logo
+    classes: light wide
+  - name: the-lodge-logo-dark
+    label: The Lodge logo on dark background
+    classes: dark wide
+  - name: the-lodge-mountains
+    label: The Lodge mountains
+    classes: wide
+icons:
+  - instagram
+  - facebook
+  - pinterest
+  - check
+  - check-round
+  - phone
+  - send
+  - chat
+  - date
+  - map-pin
+  - floorplan
+  - question
+  - dollar
+  - wedding
+  - briefcase
+  - family
+---
+
+<header class="header">
+  <h1 class="page__title">Style Guide</h1>
+
+  <div class="page__toolbar">
+    <%- include('form/toggle.html', {
+      id: 'toggle-rhythm',
+      classes: 'toggle--rhythm',
+      onIcon: 'grid',
+      offIcon: 'grid'
+    }) %>
+
+    <%- include('form/toggle.html', {
+      id: 'toggle-theme',
+      classes: 'toggle--theme',
+      onIcon: 'moon',
+      offIcon: 'contrast'
+    }) %>
+  </div>
+</header>
+
+<h2>Color palette</h2>
+
+<% Object.keys(theme).forEach(title => { _%>
+<h3><%= title %></h3>
+
+<div class="palette<%= title === 'Brand' ? '--large' : '' %>">
+  <% theme[title].forEach(label => { const color = colors[label] %><%-
+  include('palette/color.html', { color, label }) %><% }) %>
+</div>
+<%_ }) %>
+
+<h2>Logos</h2>
+
+<div class="logos">
+  <% logos.forEach(logo => { %>
+  <ldg-copy-card class="copy-card <%= logo.classes %>" value="<%= logo.name %>">
+    <%- include(logo.name + '.svg') %>
+    <div slot="label"><%= logo.name %></div>
+  </ldg-copy-card>
+  <% }) %>
+</div>
+
+<h2>Icons</h2>
+
+<div class="icons">
+  <% icons.forEach(name => { _%>
+  <ldg-copy-card class="copy-card" value="<%= name %>">
+    <%- include(name + '.svg') %>
+    <div slot="label"><%= name %></div>
+  </ldg-copy-card>
+  <%_ }) %>
+</div>
+
+<h2>Buttons &amp; Links</h2>
+
+<h3>Link</h3>
+
+<p><a href="https://example.com"><code>a</code> link</a></p>
+<p class="mt-0">
+  <a href="https://example.com">
+    <%- include('check.svg') %>
+    <code>a</code> with icon
+  </a>
+</p>
+<p class="mt-0">
+  <a href="https://example.com">
+    <code>a</code> with icon
+    <%- include('check.svg') %>
+  </a>
+</p>
+
+<p><button class="link" type="button"><code>button</code> link</button></p>
+<p class="mt-0">
+  <button class="link" type="button">
+    <%- include('check.svg') %>
+    <code>button</code> link with icon
+  </button>
+</p>
+<p class="mt-0">
+  <button class="link" type="button">
+    <code>button</code> link with icon
+    <%- include('check.svg') %>
+  </button>
+</p>
+
+<h3>Button</h3>
+
+<p>
+  <button type="button"><code>button</code></button>
+  <button type="button">
+    <%- include('phone.svg') %>
+    <code>button</code>&nbsp; with icon
+  </button>
+  <button type="button">
+    <code>button</code>&nbsp; with icon
+    <%- include('phone.svg') %>
+  </button>
+</p>
+
+<p>
+  <button class="btn" type="button">
+    <code>.btn</code>
+  </button>
+  <button class="btn" type="button">
+    <%- include('send.svg') %>
+    <code>.btn</code>&nbsp; with icon
+  </button>
+  <button class="btn" type="button">
+    <code>.btn</code>&nbsp; with icon
+    <%- include('send.svg') %>
+  </button>
+</p>
+
+<p>
+  <a class="btn" href="https://example.com"><code>a.btn</code></a>
+  <a class="btn" href="https://example.com"
+    ><%- include('instagram.svg') %>
+    <code>a.btn</code> with icon</a
+  >
+  <a class="btn" href="https://example.com"
+    ><code>a.btn</code> with icon <%- include('send.svg') %></a
+  >
+</p>
+
+<h3>Button colors</h3>
+
+<p>
+  <button class="btn--cta" type="button">
+    <code>.btn--cta</code>
+  </button>
+  <button class="btn--cta" type="button">
+    <%- include('chat.svg') %>
+    <code>.btn--cta</code>&nbsp; with icon
+  </button>
+  <a class="btn btn--cta" href="#">
+    <code>a.btn--cta</code>&nbsp; with icon
+    <%- include('chat.svg') %>
+  </a>
+</p>
+
+<p>
+  <button class="btn--info" type="button">
+    <code>.btn--info</code>
+  </button>
+  <a class="btn btn--info" href="#">
+    <%- include('save-the-date.svg') %>
+    <code>a.btn--info</code>&nbsp; with icon
+  </a>
+  <button class="btn btn--info" type="button">
+    <code>.btn--info</code>&nbsp; with icon
+    <%- include('save-the-date.svg') %>
+  </button>
+</p>
+
+<p>
+  <button class="btn--go" type="button">
+    <code>.btn--go</code>
+  </button>
+  <button class="btn--go" type="button">
+    <%- include('map-pin.svg') %>
+    <code>.btn--go</code>&nbsp; with icon
+  </button>
+  <a class="btn btn--go" href="#">
+    <%- include('map-pin.svg') %>
+    <code>a.btn--go</code>&nbsp; with icon
+  </a>
+</p>
+
+<h3>Large button</h3>
+
+<p>
+  <button class="btn--large" type="button">
+    <code>.btn--large</code>
+  </button>
+  <button class="btn--large" type="button">
+    <%- include('send.svg') %>
+    <code>.btn--large</code>&nbsp; with icon
+  </button>
+</p>
+
+<p>
+  <a class="btn btn--large" href="https://example.com"
+    ><code>a.btn--large</code></a
+  >
+  <a class="btn btn--large" href="https://example.com"
+    ><%- include('instagram.svg') %>
+    <code>a.btn--large</code> with icon</a
+  >
+</p>
+
+<h3>Button group</h3>
+
+<p class="btn-group">
+  <button class="btn" type="button">
+    <code>.btn</code>
+  </button>
+  <a class="btn" href="#">
+    <%- include('send.svg') %>
+    <code>a.btn</code>
+  </a>
+  <button class="btn" type="button">
+    <code>.btn</code>
+    <%- include('question.svg') %>
+  </button>
+</p>
+
+<p class="btn-group">
+  <button class="btn btn--large" type="button">
+    <code>.btn--large</code>
+  </button>
+  <button class="btn btn--large" type="button">
+    <%- include('send.svg') %>
+    <code>.btn--large</code>
+  </button>
+  <a class="btn btn--large" href="#">
+    <code>a.btn--large</code>
+    <%- include('question.svg') %>
+  </a>
+</p>
+
+<h3>Alternative buttons</h3>
+
+<p>
+  <button class="btn--alt" type="button">
+    <%- include('chat.svg') %>
+  </button>
+  <button class="btn--alt btn--instagram" type="button">
+    <%- include('instagram.svg') %>
+  </button>
+  <button class="btn--alt btn--facebook" type="button">
+    <%- include('facebook.svg') %>
+  </button>
+  <a href="#" class="btn--alt btn--pinterest">
+    <%- include('pinterest.svg') %>
+  </a>
+</p>
+
+<h2>Text blocks</h2>
+
+<h1 class="mt-0-5">Heading 1: The quick brown fox jumps over the lazy dog.</h1>
+<p>
+  The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
+  the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox
+  jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The
+  quick brown fox jumps over the lazy dog. The quick brown fox jumps over the
+  lazy dog.
+</p>
+
+<h2>Heading 2: The quick brown fox jumps over the lazy dog.</h2>
+<p>
+  The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
+  the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox
+  jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The
+  quick brown fox jumps over the lazy dog. The quick brown fox jumps over the
+  lazy dog.
+</p>
+
+<h3>Heading 3: The quick brown fox jumps over the lazy dog.</h3>
+<p>
+  The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
+  the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox
+  jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The
+  quick brown fox jumps over the lazy dog. The quick brown fox jumps over the
+  lazy dog.
+</p>
+
+<h4>Heading 4: The quick brown fox jumps over the lazy dog.</h4>
+<p>
+  The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
+  the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox
+  jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The
+  quick brown fox jumps over the lazy dog. The quick brown fox jumps over the
+  lazy dog.
+</p>
+
+<h5>Heading 5: The quick brown fox jumps over the lazy dog.</h5>
+<p>
+  The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
+  the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox
+  jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The
+  quick brown fox jumps over the lazy dog. The quick brown fox jumps over the
+  lazy dog.
+</p>
+
+<h6>Heading 6: The quick brown fox jumps over the lazy dog.</h6>
+<p>
+  The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
+  the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox
+  jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The
+  quick brown fox jumps over the lazy dog. The quick brown fox jumps over the
+  lazy dog.
+</p>
+
+<p>
+  The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
+  the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox
+  jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The
+  quick brown fox jumps over the lazy dog. The quick brown fox jumps over the
+  lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox
+  jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+</p>
+<p>
+  The quick brown fox jumps over the lazy dog. The quick brown fox jumps over
+  the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox
+  jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The
+  quick brown fox jumps over the lazy dog. The quick brown fox jumps over the
+  lazy dog.
+</p>
+
+<h2 class="heading"><span>Centered heading</span></h2>
+
+<address class="mt-1">
+  <p>
+    123 street<br />
+    New York, NY 12345<br />
+    <a href="mailto:bob@example.com">bob@example.com</a><br />
+    <a href="tel:+15555555555">(555) 555-5555</a>
+  </p>
+</address>
+
+<code>
+  <pre class="mt-1">
+  // I am a code block
+  function doSomethingCool() {...}
+</pre
+  >
+</code>
+
+<pre class="mt-1">
+  // I am a pre block
+  1 + 1 = 2
+</pre>
+
+<h2>Inline text elements</h2>
+
+<p class="m-0">
+  <code>&lt;em /></code> for emphasis (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em"
+    >docs</a
+  >): This is <em>not</em> a drill!
+</p>
+
+<p class="m-0">
+  <code>&lt;strong /></code> for strong emphasis (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong"
+    >docs</a
+  >): no matter how much he begs:
+  <strong>never feed him after midnight</strong>.
+</p>
+
+<p class="m-0">
+  <code>&lt;mark /></code> for highlight (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark"
+    >docs</a
+  >): Several species of <mark>salamander</mark> inhabit the temperate
+  rainforest of the Pacific Northwest.
+</p>
+
+<p class="m-0">
+  <code>&lt;abbr /></code> for abbreviations (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr"
+    >docs</a
+  >): You can use <abbr title="Cascading Style Sheets">CSS</abbr> to style your
+  <abbr title="HyperText Markup Language">HTML</abbr>.
+</p>
+
+<p class="m-0">
+  <code>&lt;dfn /></code> for definitions (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn"
+    >docs</a
+  >): A <dfn id="def-validator">validator</dfn> is a program that checks for
+  syntax errors in code or documents.
+</p>
+
+<p class="m-0">
+  <code>&lt;q /></code> for quotes (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"
+    >docs</a
+  >): When Dave asks HAL to open the pod bay door, HAL answers:
+  <q cite="https://www.imdb.com/title/tt0062622/quotes/qt0396921"
+    >I'm sorry, Dave. I'm afraid I can't do that.</q
+  >
+</p>
+
+<p class="m-0">
+  <code>&lt;small /></code> for side comments (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small"
+    >docs</a
+  >): MDN Web Docs is a learning platform for Web technologies and the software
+  that powers the Web.
+  <small
+    >The content is licensed under a Creative Commons Attribution-ShareAlike 2.5
+    Generic License.</small
+  >
+</p>
+
+<p class="m-0">
+  <code>&lt;sub /></code> for subscript text (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub"
+    >docs</a
+  >): Almost every developer's favorite molecule is
+  C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>, also known as
+  "caffeine."
+</p>
+
+<p class="m-0">
+  <code>&lt;sup /></code> for superscript text (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup"
+    >docs</a
+  >): The <b>Pythagorean theorem</b> is often expressed as the following
+  equation: <var>a<sup>2</sup></var> + <var>b<sup>2</sup></var> =
+  <var>c<sup>2</sup></var>
+</p>
+
+<p class="m-0">
+  <code>&lt;time /></code> for dates and/or time (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time"
+    >docs</a
+  >): The Cure will be celebrating their 40th anniversary on
+  <time datetime="2018-07-07">July 7</time> in London's Hyde Park.
+</p>
+<p class="m-0">
+  The concert starts at <time datetime="20:00">20:00</time> and you'll be able
+  to enjoy the band for at least <time datetime="PT2H30M">2h 30m</time>.
+</p>
+
+<p class="m-0">I am <code>inline code</code>.</p>
+
+<p class="m-0">
+  <code>&lt;kbd /></code> for keyboard input (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd"
+    >docs</a
+  >): Please press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> to
+  re-render an MDN page.
+</p>
+
+<p class="m-0">
+  <code>&lt;samp /></code> for sample output (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp"
+    >docs</a
+  >): I was trying to boot my computer, but I got this hilarious message:
+</p>
+<p class="m-0">
+  <samp>Keyboard not found <br />Press F1 to continue</samp>
+</p>
+
+<p class="m-0">
+  <code>&lt;var /></code> for variables (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var"
+    >docs</a
+  >): The volume of a box is <var>l</var> × <var>w</var> × <var>h</var>, where
+  <var>l</var> represents the length, <var>w</var> the width and
+  <var>h</var> the height of the box.
+</p>
+
+<p class="m-0">
+  <code>&lt;s /></code> for strikethrough text (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s"
+    >docs</a
+  >): <s>Few tickets available</s> SOLD OUT!
+</p>
+
+<p class="m-0">
+  <code>&lt;del /></code> for deleted text (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del"
+    >docs</a
+  >) and <code>&lt;ins /></code> for inserted text (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins"
+    >docs</a
+  >): : There is <del>nothing</del> <ins>no code</ins> either good or bad, but
+  <del>thinking</del> <ins>running it</ins> makes it so.
+</p>
+
+<h2>Lists</h2>
+
+<ul>
+  <li>Neil Armstrong</li>
+  <li>Alan Bean</li>
+  <li>Peter Conrad</li>
+  <li>Edgar Mitchell</li>
+  <li>Alan Shepard</li>
+</ul>
+
+<ol>
+  <li>Mix flour, baking powder, sugar, and salt.</li>
+  <li>In another bowl, mix eggs, milk, and oil.</li>
+  <li>Stir both mixtures together.</li>
+  <li>Fill muffin tray 3/4 full.</li>
+  <li>Bake for 20 minutes.</li>
+</ol>
+
+<dl>
+  <dt>Beast of Bodmin</dt>
+  <dd>A large feline inhabiting Bodmin Moor.</dd>
+
+  <dt>Morgawr</dt>
+  <dd>A sea serpent.</dd>
+
+  <dt>Owlman</dt>
+  <dd>A giant owl-like creature.</dd>
+</dl>
+
+<h2>Tables</h2>
+
+<table>
+  <caption>
+    He-Man and Skeletor facts
+  </caption>
+  <thead>
+    <tr>
+      <th></th>
+      <th scope="col" class="heman">He-Man</th>
+      <th scope="col" class="skeletor">Skeletor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Role</th>
+      <td>Hero</td>
+      <td>Villain</td>
+    </tr>
+    <tr>
+      <th scope="row">Weapon</th>
+      <td>Power Sword</td>
+      <td>Havoc Staff</td>
+    </tr>
+    <tr>
+      <th scope="row">Dark secret</th>
+      <td>Expert florist</td>
+      <td>Cries at romcoms</td>
+    </tr>
+    <tr>
+      <th scope="row">Dark secret</th>
+      <td>Expert florist</td>
+      <td>Cries at romcoms</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th scope="row">Count</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </tfoot>
+</table>
+
+<h2>Separator</h2>
+
+<hr />
+
+<h2>Images and multimedia</h2>
+
+<figure>
+  <blockquote cite="https://www.huxley.net/bnw/four.html">
+    <p>
+      Words can be like X-rays, if you use them properly—they’ll go through
+      anything. You read and you’re pierced.
+    </p>
+  </blockquote>
+</figure>
+
+<figure>
+  <blockquote>
+    <p>
+      It was a bright cold day in April, and the clocks were striking thirteen.
+    </p>
+  </blockquote>
+  <figcaption>
+    First sentence in
+    <cite
+      ><a href="http://www.george-orwell.org/1984/0.html"
+        >Nineteen Eighty-Four</a
+      ></cite
+    >
+    by George Orwell (Part 1, Chapter 1).
+  </figcaption>
+</figure>
+
+<figure>
+  <img src="https://picsum.photos/192" alt="My cool image" />
+  <figcaption>My cool image</figcaption>
+</figure>
+
+<img src="https://picsum.photos/128" alt="My image" />
+
+<picture>
+  <source srcset="https://picsum.photos/96" media="(max-width: 799px)" />
+  <source srcset="https://picsum.photos/208" media="(min-width: 800px)" />
+  <img src="https://picsum.photos/208" alt="My picture" />
+</picture>
+
+<figure>
+  <figcaption>Listen to the T-Rex:</figcaption>
+  <audio controls data-src="/media/cc0-audio/t-rex-roar.mp3">
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+</figure>
+
+<video controls>
+  <source data-src="/media/cc0-videos/flower.webm" type="video/webm" />
+  <source data-src="/media/cc0-videos/flower.mp4" type="video/mp4" />
+  Sorry, your browser doesn't support embedded videos.
+</video>
+
+<blockquote>
+  There is <del>nothing</del> <ins>no code</ins> either good or bad, but
+  <del>thinking</del> <ins>running it</ins> makes it so.
+</blockquote>
+
+<p>“You're late!”</p>
+<del>
+  <p>“I apologize for the delay.”</p>
+</del>
+<ins cite="../howtobeawizard.html" datetime="2018-05">
+  <p>“A wizard is never late …”</p>
+</ins>
+
+<h2>Form elements</h2>
+
+<form class="mt-1">
+  <fieldset>
+    <legend>Toggles &amp; buttons</legend>
+
+    <div class="fld-row">
+      <label class="fld-inline" for="kraken">
+        <input type="radio" id="kraken" name="monster" />
+        Kraken
+      </label>
+
+      <label class="fld-inline" for="sasquatch">
+        <input type="radio" id="sasquatch" name="monster" />
+        Sasquatch
+      </label>
+
+      <label class="fld-inline" for="mothman">
+        <input type="radio" id="mothman" name="monster" />
+        Mothman
+      </label>
+    </div>
+
+    <div class="fld-row">
+      <label class="fld-inline" for="scales">
+        <input type="checkbox" id="scales" name="scales" checked />
+        Scales
+      </label>
+
+      <label class="fld-inline" for="horns">
+        <input type="checkbox" id="horns" name="horns" />
+        Horns
+      </label>
+    </div>
+
+    <div class="fld-row d-f gap-1">
+      <div>
+        <div>
+          <label for="kraken2">
+            <input type="radio" id="kraken2" name="monster2" />
+            Kraken
+          </label>
+        </div>
+
+        <div>
+          <label for="sasquatch2">
+            <input type="radio" id="sasquatch2" name="monster2" />
+            Sasquatch
+          </label>
+        </div>
+
+        <div>
+          <label for="mothman2">
+            <input type="radio" id="mothman2" name="monster2" />
+            Mothman
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label for="scales2">
+            <input type="checkbox" id="scales2" name="scales2" checked />
+            Scales
+          </label>
+        </div>
+
+        <div>
+          <label for="horns2">
+            <input type="checkbox" id="horns2" name="horns2" />
+            Horns
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="fld-row">
+      <label class="toggle" for="toggle">
+        <input class="toggle__input" type="checkbox" id="toggle" name="toggle" />
+        <span class="toggle__switch"></span>
+        <span class="toggle__label">This is a toggle</span>
+      </label>
+
+      <label class="toggle" for="toggle2">
+        <span class="toggle__label">This is a toggle</span>
+        <input class="toggle__input" type="checkbox" id="toggle2" name="toggle2" />
+        <span class="toggle__switch"></span>
+      </label>
+    </div>
+
+    <div class="fld-row">
+      <label class="toggle" for="toggle3">
+        <input class="toggle__input" type="checkbox" id="toggle3" name="toggle3" />
+        <span class="toggle__switch">
+          <span class="toggle__off">OFF</span>
+          <span class="toggle__on">ON</span>
+        </span>
+      </label>
+
+      <label class="toggle" for="toggle4">
+        <input class="toggle__input" type="checkbox" id="toggle4" name="toggle4" />
+        <span class="toggle__switch">
+          <span class="toggle__off"><%- include('question.svg') %></span>
+          <span class="toggle__on"><%- include('check.svg') %></span>
+        </span>
+      </label>
+    </div>
+
+    <div class="fld-row">
+      <button type="reset">Reset</button>
+      <button type="submit">Submit</button>
+      <input type="reset" value="Reset" />
+      <input type="submit" value="Submit" />
+    </div>
+
+    <div class="fld-row btn-group">
+      <button class="btn" type="reset">Reset</button>
+      <button class="btn" type="submit">Submit</button>
+      <input class="btn" type="reset" value="Reset" />
+      <input class="btn" type="submit" value="Submit" />
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Select inputs</legend>
+    <div class="fld-row">
+      <label for="pet-select">Choose a pet:</label>
+      <select name="pets" id="pet-select">
+        <option value="">--Please choose an option--</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="hamster">Hamster</option>
+        <option value="parrot">Parrot</option>
+        <option value="spider">Spider</option>
+        <option value="goldfish">Goldfish</option>
+      </select>
+    </div>
+
+    <div class="fld-row">
+      <label for="ice-cream-choice">Choose a flavor:</label>
+      <input
+        list="ice-cream-flavors"
+        id="ice-cream-choice"
+        name="ice-cream-choice"
+      />
+      <datalist id="ice-cream-flavors">
+        <option value="Chocolate"></option>
+        <option value="Coconut"></option>
+        <option value="Mint"></option>
+        <option value="Strawberry"></option>
+        <option value="Vanilla"></option>
+      </datalist>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Text inputs</legend>
+
+    <div class="fld-row">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required size="10" />
+    </div>
+
+    <div class="fld-row">
+      <label for="tentacles">Number of tentacles (10-100):</label>
+      <input type="number" id="tentacles" name="tentacles" min="10" max="100" />
+    </div>
+
+    <div class="fld-row">
+      <label for="email">Enter your globex.com email:</label>
+      <input
+        type="email"
+        id="email"
+        pattern=".+@globex\.com"
+        size="30"
+        required
+      />
+    </div>
+
+    <div class="fld-row">
+      <label for="phone">Enter your phone number:</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        required
+      />
+      <small class="fld-msg">Format: 123-456-7890</small>
+    </div>
+
+    <div class="fld-row">
+      <label for="url">Enter an https:// URL:</label>
+      <input
+        type="url"
+        name="url"
+        id="url"
+        placeholder="https://example.com"
+        pattern="https://.*"
+        size="30"
+        required
+      />
+    </div>
+
+    <div class="fld-row">
+      <label for="start-date">Start date:</label>
+      <input
+        type="date"
+        id="start-date"
+        name="trip-start"
+        value="2018-07-22"
+        min="2018-01-01"
+        max="2018-12-31"
+      />
+    </div>
+
+    <div class="fld-row">
+      <label for="meeting-time">Choose a time for your appointment:</label>
+      <input
+        type="datetime-local"
+        id="meeting-time"
+        name="meeting-time"
+        value="2018-06-12T19:30"
+        min="2018-06-07T00:00"
+        max="2018-06-14T00:00"
+      />
+    </div>
+
+    <div class="fld-row">
+      <label for="start-month">Start month:</label>
+      <input
+        type="month"
+        id="start-month"
+        name="start"
+        min="2018-03"
+        value="2018-05"
+      />
+    </div>
+
+    <div class="fld-row">
+      <label for="week">Choose a week in May or June:</label>
+      <input
+        type="week"
+        name="week"
+        id="camp-week"
+        min="2018-W18"
+        max="2018-W26"
+        required
+      />
+    </div>
+
+    <div class="fld-row">
+      <label for="appt">Choose a time for your meeting:</label>
+      <input
+        type="time"
+        id="appt"
+        name="appt"
+        min="09:00"
+        max="18:00"
+        required
+      />
+      <small class="fld-msg">Office hours are 9am to 6pm</small>
+    </div>
+
+    <div class="fld-row">
+      <label for="userId">User ID</label>
+      <div class="d-f">
+        <input type="text" id="userId" name="userId" />
+        <div>
+          <input
+            type="image"
+            id="image"
+            alt="Login"
+            src="https://picsum.photos/20/20"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="fld-row">
+      <label for="pass">Password (8 characters minimum):</label>
+      <input type="password" id="pass" name="password" minlength="8" required />
+    </div>
+
+    <div class="fld-row">
+      <label for="site-search">Search the site:</label>
+      <div class="d-f">
+        <input type="search" id="site-search" name="q" />
+        <button type="submit">Search</button>
+      </div>
+    </div>
+
+    <div class="fld-row">
+      <label for="story">Tell us your story:</label>
+      <textarea id="story" name="story" rows="4" cols="33">
+        It was a dark and stormy night...
+      </textarea>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Special inputs</legend>
+
+    <div class="fld-row">
+      <input
+        class="mr-0-5"
+        type="color"
+        id="head"
+        name="head"
+        value="#e66465"
+      /><label for="head">Color input</label>
+    </div>
+
+    <div class="fld-row">
+      <label for="avatar">Choose a profile picture:</label>
+      <input
+        type="file"
+        id="avatar"
+        name="avatar"
+        accept="image/png, image/jpeg"
+      />
+    </div>
+
+    <div class="fld-row d-f flx-middle">
+      <label class="mr-0-5" for="volume">Volume</label>
+      <input type="range" id="volume" name="volume" min="0" max="11" />
+    </div>
+
+    <div class="fld-row d-f flx-middle">
+      <label class="mr-0-5" for="fuel">Fuel level:</label>
+      <meter
+        id="fuel"
+        min="0"
+        max="100"
+        low="33"
+        high="66"
+        optimum="80"
+        value="50"
+      >
+        at 50/100
+      </meter>
+    </div>
+
+    <div class="fld-row d-f flx-middle">
+      <label class="mr-0-5" for="file">File progress:</label>
+      <progress id="file" max="100" value="70">70%</progress>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Fieldset with legend 1</legend>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo beatae
+      obcaecati, labore nam ipsa sit dicta quisquam cumque cum laborum. Nesciunt
+      aut enim, cumque rerum est quasi tempore nam aperiam?
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Fieldset with legend 2</legend>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo beatae
+      obcaecati, labore nam ipsa sit dicta quisquam cumque cum laborum. Nesciunt
+      aut enim, cumque rerum est quasi tempore nam aperiam?
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Fieldset with legend 3</legend>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo beatae
+      obcaecati, labore nam ipsa sit dicta quisquam cumque cum laborum. Nesciunt
+      aut enim, cumque rerum est quasi tempore nam aperiam?
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <p>Fieldset without legend 1</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo beatae
+      obcaecati, labore nam ipsa sit dicta quisquam cumque cum laborum. Nesciunt
+      aut enim, cumque rerum est quasi tempore nam aperiam?
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <p>Fieldset without legend 2</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo beatae
+      obcaecati, labore nam ipsa sit dicta quisquam cumque cum laborum. Nesciunt
+      aut enim, cumque rerum est quasi tempore nam aperiam?
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <p>Fieldset without legend 3</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo beatae
+      obcaecati, labore nam ipsa sit dicta quisquam cumque cum laborum. Nesciunt
+      aut enim, cumque rerum est quasi tempore nam aperiam?
+    </p>
+  </fieldset>
+</form>
+
+<h2>Interactive elements</h2>
+
+<details>
+  <summary>Details</summary>
+  Something small enough to escape casual notice.
+</details>
+
+<dialog open>
+  <p>Greetings, one and all!</p>
+  <form method="dialog">
+    <button>OK</button>
+  </form>
+</dialog>
+
+<h2 class="mt-4">Cards</h2>
+
+<div class="d-f gap-1 mt-1">
+  <!-- prettier-ignore-start -->
+  <%
+    const themes = ['info', 'warning', 'success'];
+    [
+      'Wedding',
+      {
+        name: 'briefcase',
+        title: 'Business'
+      },
+      'Family'
+    ].forEach((item, i) => {
+      if (typeof item === 'string') {
+        item = { name: item.toLowerCase(), title: item }
+      }
+  _%>
+  <!-- prettier-ignore-end -->
+  <div class="card card--<%= themes[i] %>">
+    <h3 class="card__title">
+      <span class="card__icon"> <%- include(item.name + '.svg') %> </span>
+      <%= item.title %> events
+    </h3>
+    <p class="card__content">
+      Perfect for wedding ceremonies, receptions, showers, dinners, luncheons,
+      and parties.
+    </p>
+  </div>
+  <%_ }) %>
+</div>
+
+<div class="mt-1">
+  <% ['', 'info', 'success'].forEach(theme => { _%>
+  <div class="card card--has-heading mt-1<%= theme ? ` card--${theme}` : '' %>">
+    <h3 class="card__title">
+      Card with <%= theme ? theme : 'default' %> heading
+    </h3>
+    <div class="card__content">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
+      explicabo sapiente quod minus. Veritatis voluptatibus dolorum veniam
+      excepturi perspiciatis voluptas aspernatur, minima, officiis ducimus
+      neque, aliquid quasi corrupti eos rem.
+    </div>
+  </div>
+  <%_ }) %>
+</div>

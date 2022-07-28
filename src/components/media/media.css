@@ -1,0 +1,5 @@
+.media {
+  border: 0.25rem solid var(--c-white, #fff);
+  box-shadow: 0 0.25rem 1rem var(--c-black, #000);
+  max-width: 100%;
+}

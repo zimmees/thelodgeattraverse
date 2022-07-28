@@ -1,0 +1,98 @@
+<h2 class="section__title heading"><span>Contact us</span></h2>
+
+<form
+  class="form contact__form"
+  data-action="L29wfuP2"
+>
+  <fieldset class="fld__set">
+    <div class="fld">
+      <input class="fld__input" type="text" id="first_name" name="first_name" placeholder="First name" required="" minlength="2" />
+      <label class="fld__label" for="first_name">First name</label>
+      <span class="fld__valid-icon"><%- include('check-round.svg') %></span>
+      <span class="fld__invalid-icon"><%- include('warning.svg') %></span>
+      <div class="fld__message"><div>Minimum of 2 characters required.</div></div>
+    </div>
+
+    <div class="fld">
+      <input class="fld__input" type="text" id="last_name" name="last_name" placeholder="Last name" required="" minlength="2" />
+      <label class="fld__label" for="last_name">Last name</label>
+      <span class="fld__valid-icon"><%- include('check-round.svg') %></span>
+      <span class="fld__invalid-icon"><%- include('warning.svg') %></span>
+      <div class="fld__message"><div>Minimum of 2 characters required.</div></div>
+    </div>
+
+    <div class="fld">
+      <input class="fld__input" type="tel" id="phone" name="phone" placeholder="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}|\([0-9]{3}\)\s?[0-9]{3}-[0-9]{4}|[0-9]{10}" />
+      <label class="fld__label" for="phone">Phone</label>
+      <span class="fld__valid-icon"><%- include('check-round.svg') %></span>
+      <span class="fld__invalid-icon"><%- include('warning.svg') %></span>
+      <div class="fld__message fld__message--tall"><div>Must be formatted as: <code>(555) 555-5555<code>, <code>555-555-5555</code>, or <code>5555555555</code>.</div></div>
+    </div>
+
+    <div class="fld">
+      <input class="fld__input" type="email" id="email" name="email" placeholder="Email" required="" />
+      <label class="fld__label" for="email">Email</label>
+      <span class="fld__valid-icon"><%- include('check-round.svg') %></span>
+      <span class="fld__invalid-icon"><%- include('warning.svg') %></span>
+      <div class="fld__message"><div>Valid email address required.</div></div>
+    </div>
+
+    <div class="fld fld--honey">
+      <input id="email_confirm" name="email_confirm" placeholder="Confirm your email" />
+    </div>
+
+    <div class="fld">
+      <textarea
+        class="fld__input"
+        id="message"
+        name="message"
+        placeholder="Message"
+        required=""
+        minlength="10"
+      ></textarea>
+      <label class="fld__label" for="message">Message</label>
+      <span class="fld__valid-icon"><%- include('check-round.svg') %></span>
+      <span class="fld__invalid-icon"><%- include('warning.svg') %></span>
+      <div class="fld__message"><div>Minimum of 10 characters required.</div></div>
+    </div>
+
+    <div class="form__message">
+      <div class="form__error">
+        Please fix the highlighted issues.
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="fld fld--submit mt-0-5">
+    <button class="form__submit btn btn--large" type="submit">
+      Send<span class="form__submitting">ing with <%- include('heart.svg') %>...</span>
+    </button>
+  </div>
+</form>
+
+<div class="card mt-2 contact__details">
+  <div class="contact__info">
+    <div class="contact__col">
+      <h3>Address</h3>
+      <div class="contact__col-content">
+        <address>
+          (Behind The Outlets at Traverse Mountain)<br/>
+          3940 Traverse Mountain Blvd.<br/>
+          Lehi, UT 84043
+        </address>
+      </div>
+    </div>
+
+    <div class="contact__col">
+      <h3>Call or text</h3>
+      <div class="contact__col-content">
+        <a class="contact__phone" href="tel:3852341406">
+          <%- include('phone.svg') %>
+          (395) 234-1406
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6073.519661784013!2d-111.88692945350839!3d40.436316696375826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87528017e6857351%3A0x3bdff20dcf471257!2sThe%20Lodge%20at%20Traverse%20Mountain!5e0!3m2!1sen!2sus!4v1658601079647!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>

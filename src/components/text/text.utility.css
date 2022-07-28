@@ -1,0 +1,19 @@
+.txt-lg {
+  font-size: 1.25em;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.txt-shadow {
+  text-shadow: 0 0 3px var(--c-black, #000);
+}
+
+.txt-uc {
+  text-transform: uppercase;
+}
+
+.txt-black {
+  color: var(--c-lodge-black, #222);
+}

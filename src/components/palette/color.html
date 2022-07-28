@@ -1,0 +1,8 @@
+<% const cssVar = `var(--c-${label}, ${color})`; _%>
+<ldg-copy-card class="copy-card" value="<%= cssVar %>">
+  <div class="palette__color" style="background-color: <%= cssVar %>"></div>
+  <div slot="label">
+    <div class="palette__label"><%= label %></div>
+    <div><%= color %></div>
+  </div>
+</ldg-copy-card>

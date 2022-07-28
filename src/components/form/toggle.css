@@ -1,0 +1,144 @@
+.toggle {
+  /* CONFIG */
+  --height: 0.8rem;
+  --switch-size: 0.6rem;
+  --switch-left: 0.1rem;
+  --duration: 0.2s;
+
+  /* THEME */
+  --bg-color: #ccc;
+  --bg-color-active: var(--c-info, blue);
+  --switch-bg-color: #fff;
+  --switch-on-color: var(--c-white, #fff);
+  --switch-off-color: var(--c-black, #000);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: var(--height);
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: middle;
+
+  + .toggle {
+    margin-left: 0.25rem;
+  }
+}
+
+.toggle__label {
+  margin-right: 0.25rem;
+
+  .toggle__switch ~ & {
+    margin-right: 0;
+    margin-left: 0.25rem;
+  }
+}
+
+.toggle__on,
+.toggle__off {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  font-weight: 400;
+  margin: 0 0.25rem;
+  text-transform: lowercase;
+  transition-property: opacity;
+
+  .toggle__input:checked + .toggle__switch & {
+    color: var(--c-white, #fff);
+  }
+
+  svg,
+  path {
+    fill: currentColor;
+    stroke: currentColor !important;
+  }
+}
+.toggle__on {
+  order: 1;
+  margin-right: 0.1rem;
+  color: var(--switch-on-color);
+  opacity: 0;
+  transition-duration: calc(var(--duration) * 2);
+
+  svg {
+    position: relative;
+    left: 0.05rem;
+  }
+
+  .toggle__input:checked + .toggle__switch & {
+    opacity: 1;
+    transition-duration: 0s;
+  }
+}
+.toggle__off {
+  order: 2;
+  margin-left: 0.1rem;
+  color: var(--switch-off-color);
+  opacity: 1;
+  transition-duration: 0s;
+
+  svg {
+    position: relative;
+    left: -0.05rem;
+  }
+
+  .toggle__input:checked + .toggle__switch & {
+    opacity: 0;
+    transition-duration: calc(var(--duration) * 2);
+  }
+}
+
+.toggle__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.toggle__switch {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  min-width: calc(var(--height) + var(--switch-size));
+  position: relative;
+  background-color: var(--bg-color);
+  border-radius: var(--height);
+  will-change: background-color;
+  transition-property: background-color;
+  transition-duration: var(--duration);
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: var(--switch-left);
+    display: inline-block;
+    height: var(--switch-size);
+    width: var(--switch-size);
+    border-radius: 50%;
+    background-color: var(--switch-bg-color);
+    z-index: 1;
+    will-change: left;
+    transition-property: left;
+    transition-duration: var(--duration);
+    transition-timing-function: cubic-bezier(0.4, 0, 0, 1.4);
+  }
+
+  svg {
+    width: 1.3em;
+    height: 1.3em;
+  }
+
+  .toggle__input:focus + & {
+    box-shadow: 0 0 0 2px var(--c-lodge-pink, pink);
+  }
+
+  .toggle__input:checked + & {
+    background-color: var(--bg-color-active);
+
+    &:before {
+      left: calc(100% - var(--switch-size) - var(--switch-left));
+    }
+  }
+}

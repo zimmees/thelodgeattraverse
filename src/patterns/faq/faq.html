@@ -1,0 +1,84 @@
+<!-- prettier-disable-start -->
+<%
+  const faqs = [
+    {
+      summary: 'How many guests can The Lodge accommodate?',
+      details: `
+        <p>
+          The Lodge has 100 white chairs and 12 round tables on site and available for you to use for your event at no extra charge. You are welcome to rent additional tables and chairs as needed.
+        </p>
+
+        <h4>Sit down:</h4>
+        <p>
+          The Lodge can comfortably fit twelve (12) round tables with 100 seated guests, and have extra room (depending on your arrangement) for a DJ, gift table, food tables, and/or standing guests.
+        </p>
+
+        <h4>Ceremony:</h4>
+        <p>
+          For a ceremony style event, we recommend no more than 150 seated guests (without tables), although most ceremonies have fewer than 100. Important: We only provide 100 chairs on site for your event. If you need more than 100, ask us how to rent more.
+        </p>
+
+        <h4>Reception:</h4>
+        <p>
+          The number of guests The Lodge can accomodate at any given time for a Reception style event will depend on the layout. Most "come & go" receptions at The Lodge have up to 300 guests throughout the night.
+        </p>
+      `
+    }, {
+      summary: 'How long do we have The Lodge for our event?',
+      details: `
+        <h4>Saturday:</h4>
+        <p>For Saturday events, you have the whole day from 9am - 10:30pm for your event.</p>
+
+        <h4>Monday thru Friday:</h4>
+        <p>The Lodge events shares the facility with tenants. If your event falls on Monday thru Thursday, you have The Lodge from 5pm - 10pm; on Friday you have it until 10:30pm. On these days your event can begin any time after 5:30pm. You also have the the evening prior to your event available for set up to help make the day of your event stress free! If an event falls on the evening prior you will need to wait until they are out to begin set up.</p>
+      `
+    }, {
+      summary: 'Do we have to use specific vendors?',
+      details: `
+        <p><strong>Absolutely not!</strong> It’s <em>your</em> event, so pick whoever makes you happy. Awesome, right? We do work with <em>amazing</em> vendors though, <a href="#vendors">check them out</a>! They will make your occasion one to remember!</p>
+
+        <p>All we ask is to be respectful of our policy of no smoking or alcohol allow on the property.</p>
+      `
+    }, {
+      summary: 'Is there an extra fee to bring our own vendors?',
+      details: `
+        <p><strong>Absolutely not!</strong> It’s <em>your</em> event, pick whoever makes you happy. We do work with <em>amazing</em> vendors though, <a href="#vendors">check them out</a>! They will make your occasion one to remember!</p>
+      `
+    }, {
+      summary: 'How much is the deposit to reserve my date?',
+      details: '<p><strong>A $500</strong> deposit is required to reserve your date. The deposit is applied to your total balance, which is due at your Final Meeting, (1-2 weeks before your event).</p>'
+    }, {
+      summary: 'Can I change my date?',
+      details: `
+        <p>Yes! At least as long as your new date is available! <strong>You will be charged a $100 administrative fee</strong> to make any change after you have already reserved a date. To change your event date:</p>
+        <ol>
+          <li><a href="#book">Check your new date's availability</a>;</li>
+          <li><a href="#contact">Request your new date <em>in writing</em></a>;</li>
+          <li>Submit a payment of $100.<br/>
+              <em>Note: Change is only final upon full payment receipt.</em></li>
+        </ol>
+      `
+    }, {
+      summary: 'What is the cancellation policy?',
+      details: '<p>The deposit is considered non-refundable. However, if we are able to rebook your date we will refund $400, which is your deposit minus a $100 administrative fee. <em>All cancellations must be made in writing.</em></p>'
+    }, {
+      summary: 'Is smoking or alcohol allowed?',
+      details: 'Sorry, smoking and alcohol is not allowed anywhere on the property.'
+    }
+  ];
+%>
+<!-- prettier-disable-end -->
+
+<h2 class="section__title heading"><span>Frequently Asked Questions</span></h2>
+
+<div class="faqs">
+  <div class="faqs__intro">Click to toggle answers</div>
+  <% faqs.forEach(faq => { _%>
+  <details class="faq">
+    <summary>
+      <h4 class="faq__summary"><%= faq.summary %></h4>
+    </summary>
+    <div class="faq__details"><%- faq.details %></div>
+  </details>
+  <%_ }) %>
+</div>

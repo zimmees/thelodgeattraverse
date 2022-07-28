@@ -1,0 +1,11 @@
+.heading {
+  --border-width: 4px;
+
+  text-align: center;
+
+  & > :first-child {
+    display: inline-block;
+    border-bottom: var(--border-width) double currentColor;
+    margin-bottom: calc(0px - var(--border-width));
+  }
+}

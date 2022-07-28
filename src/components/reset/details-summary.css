@@ -1,0 +1,12 @@
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+
+  &:focus {
+    outline: 2px solid var(--c-outline);
+  }
+}

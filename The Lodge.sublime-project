@@ -1,0 +1,36 @@
+{
+  "folders": [
+    {
+      "name": "The Lodge",
+      "path": "~/Projects/thelodgeattraverse",
+      "folder_exclude_patterns": [
+        "dist",
+        "node_modules"
+      ],
+      // "folder_include_patterns": [],
+      // "file_include_patterns": [],
+      // "file_exclude_patterns": [],
+      // "index_include_patterns": [],
+      // "index_exclude_patterns": [],
+      // "binary_file_patterns": [],
+      "follow_symlinks": true
+    }
+  ],
+  // "settings": {
+  //   "setting": "value"
+  // },
+  // "syntax_override": {},
+  // "build_systems": [
+  //   {
+  //     "name": "",
+  //     "target": "terminus_open",
+  //     "cancel": "terminus_cancel_build",
+  //     "cmd": [],
+  //     "shell_cmd": "",
+  //     "working_dir": "",
+  //     "title": "",
+  //     "tag": "",
+  //     "auto_close": false
+  //   }
+  // ]
+}

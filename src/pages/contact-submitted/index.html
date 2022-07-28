@@ -1,0 +1,26 @@
+---
+layout: layouts/home.layout.html
+toRoot: ../../
+stylesheets:
+  - ../../components/common/index.css
+  - ./index.css
+scripts:
+  - ./index.js
+title: Thank you for contacting The Lodge at Traverse Mountain! | Lehi, Utah | weddings, receptions, parties, luncheons, business meetings, etc.
+classes: dark-mode page--book
+---
+
+<div class="section" id="submitted">
+  <div class="section__content">
+    <a
+      class="logo"
+      href="//thelodgeattraverse.com"
+      title="The Lodge at Traverse Mountain, Lehi, Utah"
+      ><%- include('the-lodge-logo-dark.svg') %></a
+    >
+
+    <%- include('contact-submitted/contact-submitted.html') %>
+  </div>
+</div>
+
+<%- include('footer/footer.html') %>

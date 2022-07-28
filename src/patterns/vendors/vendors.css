@@ -1,0 +1,129 @@
+.vendors {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+}
+
+.vendors__list {
+  box-sizing: border-box;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, 100%);
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.vendor {
+  display: flex;
+  flex-direction: column;
+  height: 14rem;
+  padding: 0;
+  text-decoration: none;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0px 1px 3px hsla(0, 0%, 0%, 0.5);
+  background-color: hsla(100, 100%, 100%, 0.8);
+  backdrop-filter: blur(0.125rem);
+  color: var(--c-text-dark, hsl(0, 0%, 6%));
+  transition: background-color 0.4s, outline 0.4s;
+
+  &:hover,
+  &:focus-within {
+    outline: 3px solid var(--c-lodge-pink, pink);
+    background-color: var(--c-white);
+  }
+}
+
+.vendor__header {
+  padding: 1rem 1rem 0.5rem;
+}
+
+.vendor__name {
+  font-size: 1.5em;
+}
+
+.vendor__tags {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.vendor__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: 50% 50%;
+  background-color: var(--c-dark2, #ccc);
+}
+
+.vendor__details {
+  padding: 0.5rem;
+  width: 100%;
+
+  .btn {
+    --color: var(--c-dark3, #aaa);
+    --hover-color: var(--c-lodge-purple, purple);
+
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    padding-left: 0;
+    padding-right: 0;
+    flex-grow: 1;
+  }
+}
+
+.vendors__empty {
+  display: none;
+  margin: 0 auto;
+
+  .vendor__details {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .vendors__filter {
+    width: 50%;
+    align-self: center;
+  }
+
+  .vendors__list {
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, calc(50% - 0.25rem));
+  }
+}
+
+@media (min-width: 990px) {
+  .vendors__filter {
+    width: calc(33% - 0.25rem);
+    align-self: end;
+  }
+
+  .vendors__list {
+    grid-template-columns: repeat(auto-fill, calc(33.3333% - 0.3333rem));
+  }
+}
+
+@media (min-width: 1080px) {
+  .vendors__filter {
+    width: calc(33% - 0.5rem);
+  }
+
+  .vendors__list {
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, calc(33.3333% - 0.6666rem));
+  }
+}
+
+@media (min-width: 1280px) {
+  .vendor__details {
+    padding: 1rem;
+  }
+}

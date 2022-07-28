@@ -1,0 +1,10 @@
+:root {
+  --shdw-1: 0px 1px 3px hsla(0, 0%, 10%, 0.12);
+  --shdw-2: 0px 6px 8px hsla(0, 0%, 10%, 0.08),
+    0px 0px 3px hsla(0, 0%, 10%, 0.12), 0px 0px 1px hsla(0, 0%, 10%, 0.2);
+  --shdw-3: 0px 8px 16px hsla(0, 0%, 10%, 0.08),
+    0px 2px 10px hsla(0, 0%, 10%, 0.14), 0px 0px 1px hsla(0, 0%, 10%, 0.2);
+  --shdw-4: 0px 15px 30px hsla(0, 0%, 10%, 0.12),
+    0px 5px 15px hsla(0, 0%, 10%, 0.18), 0px 0px 1px hsla(0, 0%, 10%, 0.2);
+  --shdw-focus: 0 0 0 2px hsla(0, 0%, 10%, 0.2);
+}

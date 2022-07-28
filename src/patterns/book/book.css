@@ -1,0 +1,48 @@
+#book {
+  .section__title {
+    margin-bottom: 0;
+    padding-top: 1rem;
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+  }
+
+  .section__intro {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.book__iframe {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 20rem;
+  position: relative;
+}
+
+.page--book {
+  .section__content {
+    padding-top: 1rem;
+  }
+
+  .logo {
+    display: block;
+    width: 8rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

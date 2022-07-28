@@ -1,0 +1,25 @@
+<div class="btn-group<%= classes ? ` ${classes}` : '' %>">
+  <% if (_.hideServices !== true) { _%>
+  <a
+    href="#services"
+    class="btn btn--large"
+    title="Services + Pricing"
+  >
+    <%- include('dollar.svg') %> Pricing
+  </a>
+  <%_ } %>
+  <a
+    href="#meet"
+    class="btn btn--large"
+    title="Book a tour"
+  >
+    <%- include('book-it.svg') %> Book a tour
+  </a>
+  <a
+    href="#book"
+    class="btn btn--large"
+    title="Request a date"
+  >
+    <%- include('heart.svg') %> Request a date
+  </a>
+</div>

@@ -1,0 +1,20 @@
+/* stylelint-disable at-rule-no-unknown */
+@import './rhythm.mixin.css';
+
+@mixin rhythm;
+
+.rhythm {
+  @mixin rhythm-grid 1rem;
+
+  &.dark-mode,
+  .dark-mode & {
+    --color: hsla(100, 100%, 100%, 0.15);
+    --color2: hsla(100, 100%, 100%, 0.06);
+  }
+
+  &.light-mode,
+  .light-mode & {
+    --color: hsla(0, 0%, 0%, 0.15);
+    --color2: hsla(0, 0%, 0%, 0.06);
+  }
+}

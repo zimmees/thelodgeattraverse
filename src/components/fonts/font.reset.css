@@ -1,0 +1,29 @@
+html {
+  font-family: var(--font-body, sans-serif);
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display, sans-serif);
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--font-mono, monospace), var(--font-mono, monospace);
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+small {
+  font-size: 80%;
+}

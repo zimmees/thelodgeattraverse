@@ -1,0 +1,18 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--c-text, hsl(0, 0%, 6%));
+  transition-property: background-color, color;
+  will-change: background-color, color;
+  transition-duration: 0.3s, 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,23 @@
+.flx-center {
+  justify-content: center;
+}
+
+.flx-middle {
+  align-items: center;
+}
+
+.flx-grow {
+  flex-grow: 1;
+}
+
+.flx-wrap {
+  flex-wrap: wrap;
+}
+
+.flx-sb {
+  justify-content: space-between;
+}
+
+.flx-col {
+  flex-direction: column;
+}

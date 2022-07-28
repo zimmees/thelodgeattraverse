@@ -1,0 +1,83 @@
+.btn,
+.btn--alt,
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  /* Button theme. */
+  --color: var(--c-dark4, #aaa);
+  --hover-color: var(--c-lodge-purple, purple);
+  /* Button config. */
+  --border-width: 2px;
+  --duration: 0.2s;
+
+  .dark-mode & {
+    --color: var(--c-light1, #eee);
+    --hover-color: var(--c-lodge-pink, pink);
+  }
+
+  .light-mode & {
+    --color: var(--c-dark2, #222);
+    --hover-color: var(--c-lodge-purple, purple);
+  }
+
+  box-sizing: border-box;
+  appearance: button;
+  -webkit-appearance: button;
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: 400;
+  height: 1rem;
+  padding: 0 0.5rem;
+  line-height: 1rem;
+  max-width: 100%;
+  margin: 0;
+  text-transform: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  background-color: transparent;
+  border: var(--border-width) solid var(--color);
+  color: var(--color);
+  cursor: pointer;
+  vertical-align: bottom;
+  text-decoration: none;
+  transition-property: color, border-color, background-color;
+  transition-duration: var(--duration);
+  will-change: color, border-color;
+
+  &:hover,
+  &:focus {
+    color: var(--hover-color);
+  }
+
+  &:focus {
+    outline-style: solid;
+    outline-color: var(--c-outline, blue);
+  }
+
+  form & {
+    height: 1.5rem;
+  }
+}
+
+/* Search button next to a search input should not overflow to an ellipsis. */
+[type='search'] + button {
+  overflow: revert;
+}
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted var(--c-outline, blue);
+}

@@ -1,0 +1,229 @@
+<!-- prettier-ignore-start -->
+<% const days = [
+    { title: 'Mon-Wed',
+      time: '5-10pm',
+      price: 1450,
+    },
+      { title:
+    'Thursday',
+    time: '5-10pm',
+    price: 1750,
+    },
+    { title: 'Friday',
+    time:
+    '5-10:30pm',
+    price: 1950,
+    },
+    { title: 'Saturday',
+    time: '9am-10:30pm',
+    price:
+    2250,
+  }];
+  const number = new Intl.NumberFormat(
+    undefined,
+    {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0,
+      minimumFractionDigits: 0
+    }
+  )
+%>
+<!-- prettier-ignore-end -->
+<h2 class="section__title heading"><span>Services &amp; Pricing</span></h2>
+
+<div class="card card--has-heading services light-mode">
+  <h3 class="card__title">Event Packages</h3>
+
+  <div class="card__content">
+    <div class="services__wrap">
+      <% days.forEach(day => { _%>
+      <div class="service">
+        <h4 class="service__title"><%= day.title %></h4>
+        <div class="service__time"><%= day.time %></div>
+        <div class="service__price">
+          <div class="service__number">
+            <%= number.format(day.price - 250) %>
+          </div>
+          <div class="txt-black">with DIY setup &amp; takedown</div>
+          <div class="service__number">
+            <span class="service__or">or</span> <%= number.format(day.price) %>
+          </div>
+        </div>
+      </div>
+      <%_ }) %>
+    </div>
+
+    <%- include('ctas/main-cta.html', { classes: 'services__cta', hideServices: true }) %>
+  </div>
+
+  <h3 class="card__title">Addons</h3>
+  <div class="card__content services__addons">
+    <div class="service">
+      <h4 class="service__title">Decor rental</h4>
+      <div class="service__price">
+        <div>
+          <div class="service__number">$300</div>
+          <div class="txt-black">for <strong>unlimited rentals</strong>!</div>
+          <div class="txt-black">Or purchase a la carte.</div>
+        </div>
+        <div class="txt-black mt-0-5">
+          <a
+            class="btn"
+            href="https://www.facebook.com/pg/thelodgeattraversemountain/photos/?tab=album&album_id=627180557461032"
+            >View decor selection</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="service">
+      <h4 class="service__title">Extra chairs, tables, and linens</h4>
+      <div class="service__price">
+        <div>
+          <!-- <div class="service__number">$300</div> -->
+          <div class="txt-black">available for an additional fee.</div>
+          <div class="txt-black">(no delivery fee in most cases)</div>
+        </div>
+        <div class="txt-black mt-0-5">
+          <a
+            class="btn"
+            href="//www.renteventutah.com"
+            >View linen selection</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="card__title mt-0">What's included?</h3>
+  <div class="card__content services__inclusions">
+    <p class="txt-lg txt-center pb-0-5 mw-0">
+      Our prices include <strong>everything</strong> you need to make your event
+      memorable!
+    </p>
+    <div class="mb-1 btn-group flx-center">
+      <a
+        href="//drive.google.com/open?id=0Bxb5rGPsTPoJNHVsaFIzem9hQTVoRHJpQmc4azZkTDdlZi00"
+        class="btn"
+        title="View the floorplan for The Lodge at Traverse Mountain, Lehi, Utah"
+        >View floorplan</a
+      >
+      <a
+        href="//youtu.be/qTzc0YBbMaY"
+        class="btn"
+        title="See a video tour of The Lodge at Traverse Mountain, Lehi, Utah"
+        >Video tour</a
+      >
+      <a
+        href="//www.instagram.com/the_lodge_at_traverse"
+        class="btn"
+        title="See a photo gallery of The Lodge at Traverse Mountain, Lehi, Utah"
+        >Photo gallery</a
+      >
+    </div>
+    <div class="services__inclusions-list">
+      <div>
+        <h4>Included in your price</h4>
+        <ul>
+          <li>
+            <strong>Bring your own caterer (and vendors)!</strong> While we
+            have plenty of caterers and other vendors you can work with,
+            <em>we don't require it</em>!! It's <em>your</em> day, enjoy it
+            how <em>you</em> like!
+          </li>
+          <li>
+            An <strong>Event Manager</strong> is provided, free of charge, to
+            help you plan, arrange your space, and they will be on call during
+            your event to make sure all is smooth sailing and memorable!
+          </li>
+          <li>
+            <strong>Tables and chairs included!</strong> Price includes up to
+            <em>100 white padded chairs</em>, <em>12-60" round tables</em>,
+            <em>4-6' long rectangular serving tables</em>, and
+            <em>4-32" bar height tables</em>.
+          </li>
+          <li>
+            <strong>20 table linens included</strong>!
+            <a href="http://www.renteventutah.com/category/table-cloths"
+              >View color samples online</a
+            >
+            or at The Lodge. Additional coverings may be rented for a fee.
+          </li>
+          <li>
+            <strong>Edison string lights</strong> are available at no extra
+            charge!
+          </li>
+        </ul>
+        <h4>Details</h4>
+        <ul>
+          <li><strong>$500 deposit</strong> required to save your date.</li>
+          <li>
+            Dates available on a
+            <strong>first-come-first-serve</strong> basis.
+          </li>
+          <li>
+            <strong>In-person tours</strong> are available by appointment only
+            on Wednesday evenings and Thursday mornings.
+          </li>
+          <li>
+            Scheduling is unavailable during normal weekday business hours;
+            available event times are listed above.
+          </li>
+          <li>No smoking or alcohol allowed on building premises.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Amenities</h4>
+        <ul>
+          <li>
+            <strong>The Grand Room</strong> is perfect for any event: weddings,
+            receptions, parties, luncheons or dinners, seminars, business
+            meetings, retreats, or family parties and get togethers. It offers
+            2,200 square feet with flexible seating layouts, built-in
+            audio/video system, 42" TV, greeting area, one indoor and two
+            outdoor fireplaces, and an outdoor patio with gorgeous views of
+            Mount Timpanogos, Utah Lake, and the entire Utah Valley!
+          </li>
+          <li>
+            <strong>The Bride's Room</strong> is the perfect, cozy space for the
+            Bride to get ready for her special day. It includes ample space to
+            store all her belongings, a vanity to help pamper the Bride, a large
+            head-to-toe mirror, and two large windows with plenty of natural
+            light.
+          </li>
+          <li>
+            <strong>The Board Room</strong> provides a separate, smaller space,
+            perfect for entertaining children (or adults) away from the main
+            event, stashing gifts, business conferences, or intimate luncheons
+            or dinners. It features a 570 square foot conference/entertainment
+            room with a 64" Smart TV, a large custom wood conference table with
+            ten (10) executive chairs, and additional seating available.
+          </li>
+          <li>
+            <strong>Perfect location</strong> at Point of the Mountain with easy
+            freeway access.
+          </li>
+          <li>
+            <strong>Gorgeous, breath-taking views</strong> of Utah valley,
+            Mountain Timpanogos, and Utah Lake from the
+            <strong>outdoor patio</strong>.
+          </li>
+          <li>
+            <strong>Three (3) beautiful fireplaces</strong>: an indoor fireplace
+            with seating and two fireplaces on the outdoor patio.
+          </li>
+          <li>
+            <strong>Warming kitchen &amp; caterer's area</strong> with a serving
+            window.
+          </li>
+          <li><strong>Natural stone and wood</strong> throughout.</li>
+          <li>
+            <strong>Convenient parking</strong> on site with extra parking
+            available to the North.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

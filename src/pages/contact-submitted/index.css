@@ -1,0 +1,21 @@
+@import '../../components/logo/logo.css';
+@import '../../patterns/follow/follow.css';
+@import '../../patterns/footer/footer.css';
+@import '../../patterns/contact-submitted/index.css';
+
+#submitted {
+  background-image: url('/assets/backgrounds/bg-main.jpg');
+  background-position: 66% 0;
+}
+
+.submitted__card {
+  width: 100%;
+  max-width: 20rem;
+  margin-top: 3rem;
+  padding-bottom: 2rem;
+  opacity: 0.8;
+
+  .btn {
+    flex-grow: 1;
+  }
+}

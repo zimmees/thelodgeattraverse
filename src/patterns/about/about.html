@@ -1,0 +1,42 @@
+<h2 class="section__title heading"><span>About The Lodge</span></h2>
+
+<div class="mw-20">
+  <iframe
+    class="media"
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/qTzc0YBbMaY?ecver=1"
+    frameborder="0"
+    allowfullscreen=""
+  ></iframe>
+</div>
+
+<div class="mw-20 mt-0-5 mb-2 txt-lg txt-center">
+  <a
+    href="//www.instagram.com/the_lodge_at_traverse"
+    class="btn"
+  >
+    Photo gallery
+  </a>
+  <p class="txt-shadow">
+    The Lodge is conveniently located right off of I-15 behind the Traverse
+    Mountain Outlets shopping center, surrounded by beautiful mountain
+    scenery. The Lodge is the perfect host for any event.
+  </p>
+</div>
+
+<div class="occasions">
+  <% occasions.forEach(occasion => { _%>
+  <div class="card<%= occasion.theme ? ` card--${occasion.theme}` : '' %>">
+    <h3 class="card__title">
+      <span class="card__icon"
+        ><%- include(occasion.icon + '.svg') %></span
+      >
+      <%= occasion.title %>
+    </h3>
+    <div class="card__content"><%= occasion.blurb %></div>
+  </div>
+  <%_ }) %>
+</div>
+
+<%- include('ctas/main-cta.html', { classes: 'mt-2' }) %>

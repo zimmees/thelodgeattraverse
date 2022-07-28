@@ -1,0 +1,202 @@
+<!-- prettier-ignore-start -->
+<%_
+  const vendorTypes = [
+    'All',
+    'Food Catering',
+    'Cakes & Desserts',
+    'Photography',
+    'Videography',
+    'Event Planning',
+    'Entertainment & Fun',
+    'DJs',
+    'Decor & Lighting',
+    'Designs',
+    'Invitations'
+  ];
+  const vendors = [
+    {
+      name: 'Rent Event Utah',
+      category: ['Decor & Lighting'],
+      phone: '(801) 473-5886',
+      email: '',
+      url: 'www.renteventutah.com',
+      image: 'vendor__rent-event-utah.png'
+    }, {
+      name: `Magleby's`,
+      category: ['Food Catering', 'Cakes & Desserts'],
+      phone: '(801) 610-4110',
+      email: '',
+      url: 'www.utahcatering.com',
+      image: 'vendor__maglebys.png',
+      styles: 'background-size: auto 85%;'
+    }, {
+      name: 'Have Party Will Travel',
+      category: ['Food Catering', 'Cakes & Desserts', 'Event Planning'],
+      phone: '(801) 269-8400',
+      email: '',
+      url: 'havepartywilltravel.com',
+      image: 'vendor__have-party-will-travel.png',
+      styles: 'background-color: #fff; background-size: auto 85%;'
+    }, {
+      name: 'Pomelo Cakes',
+      category: ['Cakes & Desserts', 'Food Catering'],
+      phone: '(801) 691-3315',
+      email: '',
+      url: 'www.instagram.com/pomelo.cakes',
+      image: 'vendor__pomelo-cakes.png',
+      styles: 'background-size: 100% auto;'
+    }, {
+      name: 'Salt Cake City',
+      category: ['Cakes & Desserts', 'Food Catering'],
+      phone: '',
+      email: 'saltcakecity@gmail.com',
+      url: 'www.saltcakecity.com',
+      image: 'vendor__salt-cake-city.png',
+      styles: 'background-color: #fff;'
+    }, {
+      name: 'Cake by Allessandra',
+      category: ['Cakes & Desserts', 'Food Catering'],
+      phone: '(801) 901-6485',
+      email: '',
+      url: 'cakeut.com',
+      image: 'vendor__cake-by-allessandra.jpg',
+      styles: 'background-size: 100% auto; background-position: 50% 100%;'
+    }, {
+      name: 'Wild Rose Events',
+      category: ['Event Planning'],
+      phone: '(801) 879-3069',
+      email: '',
+      url: 'www.instagram.com/wild_rose_events',
+      image: 'vendor__wild-rose-events.png',
+      styles: 'background-size: 100% auto;'
+    }, {
+      name: 'Snap Happy Photo Booth',
+      category: ['Entertainment & Fun'],
+      phone: '(385) 355-1360',
+      email: '',
+      url: 'snaphappy-photobooth.com',
+      image: 'vendor__snap-happy-photo-booth.png',
+      styles: 'background-color: #fff;'
+    }, {
+      name: 'Laughing Gravy',
+      category: ['DJs'],
+      phone: '(801) 566-5614',
+      email: '',
+      url: 'laughinggravy.com',
+      image: 'vendor__laughing-gravy.jpg',
+      styles: 'background-size: 100% auto;'
+    }, {
+      name: 'Moonlight Wedding & Event Lighting',
+      category: ['Decor & Lighting'],
+      phone: '(801) 225-0198',
+      email: '',
+      url: 'moonlightutah.com',
+      image: 'vendor__moonlight.jpg',
+      styles: 'background-size: 100% auto; background-color: #fff;'
+    }, {
+      name: 'This and That',
+      category: ['Designs', 'Invitations'],
+      phone: '(661) 202-2858',
+      email: '',
+      url: 'www.instagram.com/thisthat_thatthis',
+      image: 'vendor__this-and-that.jpg',
+      styles: 'background-color: #fff;'
+    }, {
+      name: 'Utah Sparklers',
+      category: ['Entertainment & Fun'],
+      phone: '(801) 878-6190',
+      email: '',
+      url: 'utahsparklers.com',
+      image: 'vendor__utah-sparklers.png'
+    }
+  ];
+_%>
+<!-- 
+  VENDORS WHOSE WEBSITES ARE NOT WORKING:
+  {
+    name: 'Royal Fox Films',
+    category: ['Videography'],
+    phone: '',
+    email: 'royalfoxfilms@gmail.com',
+    url: 'www.royalfoxfilms.com',
+    image: 'vendor__royal-fox.png',
+  }
+  {
+    name: 'C. Julia Design',
+    category: ['Designs', 'Invitations'],
+    phone: '',
+    email: 'c.juliadesign@gmail.com',
+    url: 'www.cjuliadesign.com',
+    image: 'vendor__julia-design.webp'
+  }
+ -->
+<!-- prettier-ignore-end -->
+
+<h2 class="section__title heading"><span>Preferred Vendors</span></h2>
+
+<div class="vendors">
+  <div class="vendors__filter">
+    <!-- <label for="vendors-filter">Find vendors:</label>
+    <input
+      list="vendor-categories"
+      id="vendors-filter"
+      name="vendors-filter"
+      value="<%= vendorTypes[0] %>"
+    />
+    <datalist id="vendor-categories">
+      <% vendorTypes.forEach(type => { _%>
+      <option value="<%= type %>"></option>
+      <%_ }) %>
+    </datalist> -->
+
+    <label for="vendors-filter">Find your vendors:</label>
+    <select name="vendors-filter" id="vendors-filter" value="<%= vendorTypes[0] %>">
+      <% vendorTypes.forEach((type, i) => { _%>
+      <% const attrs = i === 0 ? ' selected' : '' _%>
+      <option value="<%= type %>"<%= attrs %>><%= type %></option>
+      <%_ }) %>
+    </select>
+  </div>
+
+  <div class="vendors__list">
+    <!-- prettier-ignore-start -->
+    <% vendors.forEach(vendor => { _%>
+    <% const categories = vendor.category.join(', '); %>
+    <%
+      const styles = '' +
+        `background-image: url(/assets/vendors/${vendor.image});` +
+        `${vendor.styles ? vendor.styles : ''}`
+    %>
+    <!-- prettier-ignore-end -->
+    <div class="vendor" data-groups="<%= categories %>">
+      <div class="vendor__header">
+        <h4 class="vendor__name"><%= vendor.name %></h4>
+        <div class="vendor__tags"><%= categories %></div>
+      </div>
+      <% if (vendor.image) { _%>
+      <div class="vendor__image" style="<%= styles %>"></div>
+      <%_ } %>
+      <div class="vendor__details btn-group at800">
+        <% if (vendor.url) { _%>
+        <a href="//<%= vendor.url %>" class="btn btn--large vendor__url" title="Visit the website for vendor <%= vendor.name %>">Website</a>
+        <%_ } %>
+        <% if (vendor.phone) { _%>
+        <a href="tel:<%= vendor.phone %>" class="btn btn--large vendor__phone" title="Call <%= vendor.name %>"><%= vendor.phone %></a>
+        <%_ } %>
+        <% if (vendor.email) { _%>
+        <a href="mailto:<%= vendor.email %>" class="btn btn--large vendor__email" title="Email <%= vendor.name %>">Email</a>
+        <%_ } %>
+      </div>
+    </div>
+    <%_ }) %>
+
+    <div class="vendor vendors__empty">
+      <div class="vendor__header">
+        <h4 class="vendor__name">Sorry, we are still adding vendors</h4>
+      </div>
+      <div class="vendor__details txt-lg">
+        <p>We have many vendors we have worked with, but have not yet posted all of them here. Please <a href="#contact">reach out</a> and we can send you our full vendor list for this category.</p>
+      </div>
+    </div>
+  </div>
+</div>

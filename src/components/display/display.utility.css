@@ -1,0 +1,57 @@
+.d-b {
+  display: block;
+}
+
+.d-ib {
+  display: inline-block;
+}
+
+.d-i {
+  display: inline;
+}
+
+.d-f {
+  display: flex;
+}
+
+.d-fw {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.d-if {
+  display: inline-flex;
+}
+
+.d-ifw {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.d-g {
+  display: grid;
+}
+
+.d-ig {
+  display: inline-grid;
+}
+
+.d-c {
+  display: contents;
+}
+
+.d-li {
+  display: list-item;
+}
+
+.d-no {
+  display: none;
+}
+
+.d-clr {
+  clear: both;
+}
+
+.d-full {
+  width: 100%;
+}

@@ -1,0 +1,32 @@
+---
+layout: layouts/home.layout.html
+toRoot: ../../
+stylesheets:
+  - ../../components/common/index.css
+  - ./index.css
+scripts:
+  - ./index.js
+title: The Lodge at Traverse Mountain - Lehi, Utah | weddings, receptions, parties, luncheons, business meetings, etc.
+classes: dark-mode page--book
+---
+
+<div class="section" id="book">
+  <div class="section__content">
+    <a
+      class="logo"
+      href="//thelodgeattraverse.com"
+      title="The Lodge at Traverse Mountain, Lehi, Utah"
+      ><%- include('the-lodge-logo-dark.svg') %></a
+    >
+    <%- include('book/book.html') %>
+  </div>
+</div>
+
+<div class="section" id="contact">
+  <div class="section__content">
+    <%- include('contact/contact.html') %>
+  </div>
+</div>
+
+<%- include('contact/contact-button.html') %> <%-
+include('footer/footer.html') %>

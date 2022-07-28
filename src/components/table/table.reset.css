@@ -1,0 +1,47 @@
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: -1px;
+}
+
+td,
+th {
+  border: 1px solid var(--c-border, #ddd);
+  /* padding must compensate for any border size to stay in vertical rhythm. */
+  padding: calc(0.25rem - 1px) 0.25rem 0.25rem;
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+  background-color: var(--c-light1, #eee);
+
+  .dark-mode & {
+    background-color: var(--c-dark1, #222);
+  }
+
+  .light-mode & {
+    background-color: var(--c-light1, #eee);
+  }
+}
+
+caption {
+  font-style: italic;
+  font-size: 0.9em;
+}

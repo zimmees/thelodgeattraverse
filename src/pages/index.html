@@ -1,0 +1,69 @@
+---
+layout: layouts/home.layout.html
+toRoot: ../
+stylesheets:
+  - ../components/common/index.css
+  - ./index.css
+scripts:
+  - ./index.js
+title: The Lodge at Traverse Mountain - Lehi, Utah | weddings, receptions, parties, luncheons, business meetings, etc.
+classes: dark-mode
+occasions:
+  - icon: wedding
+    theme: info
+    title: Wedding Events
+    blurb: Perfect for wedding ceremonies, receptions, showers, dinners, luncheons, and parties.
+  - icon: briefcase
+    theme: warning
+    title: Business Events
+    blurb: Large or small business meetings, seminars, dinners, conferences, parties, or retreats.
+  - icon: family
+    theme: success
+    title: Family Events
+    blurb: Great for reunions, dinners, luncheons, baptisms, celebrations, and get togethers.
+---
+
+<div class="section" id="top">
+  <div class="section__content">
+    <%- include('top/top.html') %>
+  </div>
+</div>
+
+<div class="section" id="about">
+  <div class="section__content">
+    <%- include('about/about.html') %>
+  </div>
+</div>
+
+<div class="section" id="services">
+  <div class="section__content">
+    <%- include('services/services.html') %>
+  </div>
+</div>
+
+<div class="section" id="book">
+  <div class="section__content">
+    <%- include('book/book.html') %>
+  </div>
+</div>
+
+<div class="section light-mode" id="faq">
+  <div class="section__content">
+    <%- include('faq/faq.html') %>
+  </div>
+</div>
+
+<div class="section" id="vendors">
+  <div class="section__content">
+    <%- include('vendors/vendors.html') %>
+  </div>
+</div>
+
+<div class="section" id="contact">
+  <div class="section__content">
+    <%- include('contact/contact.html') %>
+  </div>
+</div>
+
+<%- include('contact/contact-button.html') %> <%-
+include('footer/footer.html') %>

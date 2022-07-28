@@ -1,0 +1,48 @@
+<div class="card submitted__card light-mode --loading">
+  <div class="card__content --loaded">
+    <h2 class="section__title">
+      <%- include('heart.svg') %>
+      <%- include('heart.svg') %>
+      <span>Thank you</span>
+      <%- include('heart.svg') %>
+      <%- include('heart.svg') %>
+    </h2>
+
+    <div class="section__intro">
+      <p>Hey <span id="submitted-name">there</span>!</p>
+      <p>Just confirming your message was sent. We typically respond within 24 hours. <em>Please verify your contact information is accurate</em> and <a href="/#contact">let us know</a> if it's not.</p>
+
+      <hr>
+
+      <ul class="mt-0-5">
+        <li><strong>Phone</strong>: <span id="submitted-phone"></span></li>
+        <li><strong>Email</strong>: <span id="submitted-email"></span></li>
+      </ul>
+
+      <hr>
+
+      <p>In the meantime, you may want to check out:</p>
+      <div class="btn-group mt-0-5">
+        <a href="/#services" class="btn">Pricing</a>
+        <a href="/#vendors" class="btn">Vendors</a>
+        <a href="/book" class="btn">Availability</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card__content --loading">
+    <h2 class="section__title heading"><span>Submitting...</span></h2>
+    <p class="section__intro txt-center">Sending your contact information...</p>
+  </div>
+
+  <div class="card__content --error">
+    <h2 class="section__title heading"><span>Uh oh...</span></h2>
+
+    <div class="section__intro">
+      <p>Sorry, there was an error sending your message.</p>
+      <p id="submitted-error"></p>
+    </div>
+  </div>
+</div>
+
+<%- include('follow/follow.html') %>

@@ -1,0 +1,31 @@
+img,
+picture,
+video,
+canvas {
+  display: block;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+img {
+  border-style: none;
+}
+
+figure {
+  margin: 0;
+}
+
+audio {
+  display: block;
+  height: 1rem;
+}
+
+video {
+  min-height: 5rem;
+}

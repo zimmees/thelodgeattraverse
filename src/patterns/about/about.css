@@ -1,0 +1,15 @@
+#about {
+  background-image: url('/assets/backgrounds/bg-wedding--red-white.jpg');
+
+  .occasions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  #about .occasions {
+    flex-direction: row;
+  }
+}

@@ -2,15 +2,9 @@
 .DS_Store
 
 ## build files
-.tmp/
-build/
-build--backup/
-backup/
 node_modules/
-src-old/
-vendor/
-assets/
-design/
+dist/
+.parcel-cache/
 
-## IDE files
-*.sublime*
+## Ignore minimized icons (they are in the html).
+/assets/*.min.svg

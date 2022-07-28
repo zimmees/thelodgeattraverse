@@ -1,0 +1,148 @@
+.services {
+  .card__title {
+    height: 1.5rem;
+    background-color: var(--c-dark5);
+
+    &:first-child {
+      height: 2rem;
+      background-color: var(--c-info, blue);
+    }
+  }
+
+  .card__content {
+    margin-top: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .services__inclusions {
+    padding: 1rem 1rem 2rem;
+  }
+}
+
+.services__addons .service {
+  display: flex;
+  flex-direction: column;
+
+  .service__price {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.services__inclusions-list {
+  h4:not(:first-child) {
+    margin-top: 1rem;
+  }
+}
+
+.services__wrap {
+  border-bottom: 1px solid var(--c-border, #ccc);
+}
+
+.service {
+  padding: 1rem;
+  text-align: center;
+
+  & + & {
+    border-top: 1px solid var(--c-border, #ccc);
+  }
+}
+
+.services__cta {
+  padding: 1rem 1rem 0;
+  justify-content: center;
+}
+
+.service__title {
+  font-size: 1.5em;
+  color: var(--c-lodge-black, #222);
+}
+
+.service__time {
+  color: var(--c-dark5, #555);
+}
+
+.service__price {
+  color: var(--c-lodge-black, #222);
+}
+
+.service__number {
+  color: var(--c-dark1, #111);
+  font-size: 2.5em;
+  line-height: 1.5rem;
+  position: relative;
+
+  & ~ & {
+    font-size: 1.8em;
+    line-height: 1rem;
+  }
+}
+
+.service__or {
+  position: absolute;
+  font-size: 0.6em;
+  color: var(--c-lodge-black);
+  transform: translateX(-120%);
+}
+
+@media (min-width: 800px) {
+  .services__wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .services__addons {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .service {
+    flex: 50%;
+
+    & + & {
+      border-top: 0 none;
+      border-left: 1px solid var(--c-border, #ccc);
+    }
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      border-top: 1px solid var(--c-border, #ccc);
+    }
+  }
+
+  .services__inclusions-list {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  .services {
+    .services__inclusions {
+      padding: 1rem 2rem 2rem;
+    }
+  }
+
+  .services__wrap {
+    flex-wrap: nowrap;
+  }
+
+  .service {
+    flex: 1;
+
+    & + & {
+      border-top: 0 none;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .services {
+    .services__inclusions-list {
+      gap: 2rem;
+    }
+  }
+}

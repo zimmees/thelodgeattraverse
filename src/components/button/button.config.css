@@ -1,0 +1,3 @@
+button {
+  --btn-border-color: var(--c-border, #ccc);
+}

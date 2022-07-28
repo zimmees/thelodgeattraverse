@@ -3,7 +3,7 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Tyson Zimmerman -- Creator + Maintainer -- <https://tysonzimmerman.com>
 
 # THANKS
 
@@ -11,5 +11,5 @@
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    jQuery, Modernizr
+    Vanilla HTML5 + CSS3 + JavaScript
+    Built with Parcel 2

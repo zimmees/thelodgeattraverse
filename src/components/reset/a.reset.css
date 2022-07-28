@@ -1,0 +1,26 @@
+a {
+  color: var(--c-link);
+  transition-duration: 0.2s;
+  transition-property: color;
+  will-change: color;
+
+  &:focus {
+    outline: 2px solid var(--c-outline, blue);
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--c-link-active);
+  }
+
+  & svg {
+    position: relative;
+    top: 2px;
+    height: 0.5rem;
+    width: 0.5rem;
+    fill: currentColor;
+    transition-duration: 0.2s;
+    transition-property: fill;
+    will-change: fill;
+  }
+}

@@ -1,0 +1,37 @@
+.link,
+button.link {
+  display: inline;
+  height: auto;
+  line-height: initial;
+  padding: 0;
+  border: 0 none;
+  background-color: transparent;
+  color: var(--c-link);
+  text-transform: none;
+  text-decoration: underline;
+  font-family: inherit;
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+  &:focus {
+    outline: 2px solid var(--c-outline, blue);
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--c-link-active);
+
+    svg {
+      fill: var(--c-link-active);
+      transform: none;
+    }
+  }
+
+  svg {
+    fill: currentColor;
+    opacity: 1;
+  }
+}

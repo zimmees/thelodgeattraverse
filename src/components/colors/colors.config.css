@@ -1,0 +1,53 @@
+:root {
+  /* Brand. */
+  --c-lodge-brown: hsl(39, 57%, 38%);
+  --c-lodge-black: hsl(0, 0%, 30%);
+  --c-lodge-gray: hsl(0, 0%, 55%);
+  --c-lodge-pink: hsl(313, 88%, 75%);
+  --c-lodge-purple: hsl(293, 87%, 62%);
+
+  /* Theme. */
+  --c-error: hsl(0, 70%, 50%);
+  --c-warning: hsl(27, 97%, 61%);
+  --c-success: hsl(112.19, 56.25%, 50%);
+  --c-info: hsl(220, 46%, 48%);
+  --c-instagram: hsl(276, 51%, 47%);
+  --c-facebook: hsl(220, 46%, 48%);
+  --c-pinterest: hsl(351, 100%, 45%);
+
+  /* Neutrals. */
+  --c-black: hsl(0, 0%, 0%);
+  --c-white: hsl(0, 0%, 100%);
+  --c-light1: hsl(0, 0%, 97%);
+  --c-light2: hsl(0, 0%, 88%);
+  --c-light3: hsl(0, 0%, 78%);
+  --c-light4: hsl(0, 0%, 69%);
+  --c-light5: hsl(0, 0%, 60%);
+  --c-dark5: hsl(0, 0%, 44%);
+  --c-dark4: hsl(0, 0%, 35%);
+  --c-dark3: hsl(0, 0%, 25%);
+  --c-dark2: hsl(0, 0%, 16%);
+  --c-dark1: hsl(0, 0%, 6%);
+
+  /* Functional. */
+  --c-text-light: var(--c-light1, hsl(0, 0%, 97%));
+  --c-text-dark: var(--c-dark1, hsl(0, 0%, 6%));
+  --c-text: var(--c-text-dark);
+  --c-link: var(--c-lodge-purple);
+  --c-link-active: var(--c-lodge-pink);
+  --c-border: var(--c-light3);
+  --c-outline: var(--c-lodge-pink);
+  --c-placeholder: hsl(0, 0%, 87%);
+}
+
+.dark-mode {
+  --c-text: var(--c-text-light);
+  --c-link: var(--c-lodge-pink);
+  --c-link-active: var(--c-lodge-purple);
+}
+
+.light-mode {
+  --c-text: var(--c-text-dark);
+  --c-link: var(--c-lodge-purple);
+  --c-link-active: var(--c-lodge-pink);
+}

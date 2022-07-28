@@ -61,11 +61,20 @@ function init() {
       const data = updateForm(form, 'submitting');
       const params = new URLSearchParams(data);
 
-      // data._redirect = window.location.origin + '/contact-submitted';
-
       runBotpoison()
         .then(({ solution }) => {
+          const name = `${data.first_name} ${data.last_name}`.trim();
           data._botpoison = solution;
+          data._email = {
+            subject: `New inquiry for The Lodge${
+              name ? ` from ${name}` : ''
+            }...`,
+            from: name,
+            template: {
+              title: 'You have a new web inquiry for The Lodge!',
+              footer: false,
+            },
+          };
 
           return fetch(`${FORM_ACTION_URL}/${form.dataset.action}`, {
             method: 'POST',

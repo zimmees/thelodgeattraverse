@@ -58,6 +58,26 @@
   margin-bottom: 1rem;
 }
 
+.section__subtitle {
+  display: flex;
+  justify-content: center;
+  text-transform: none;
+  font-size: 1.6em;
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  .icon {
+    display: inline-block;
+    height: 1.5em;
+    min-width: 1.5em;
+    fill: var(--c-white);
+    margin-right: 0.2em;
+    position: relative;
+    top: -0.2em;
+  }
+}
+
 .section__intro {
   font-size: 1.3em;
 }

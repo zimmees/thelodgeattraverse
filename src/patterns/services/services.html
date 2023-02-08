@@ -2,22 +2,22 @@
 <% const days = [
     { title: 'Mon-Wed',
       time: '5-10pm',
-      price: 1450,
+      price: 1750,
     },
-      { title:
+    { title:
     'Thursday',
     time: '5-10pm',
-    price: 1750,
+    price: 2000,
     },
     { title: 'Friday',
     time:
     '5-10:30pm',
-    price: 1950,
+    price: 2250,
     },
     { title: 'Saturday',
     time: '9am-10:30pm',
     price:
-    2250,
+    2750,
   }];
   const number = new Intl.NumberFormat(
     undefined,
@@ -36,10 +36,6 @@
   <h3 class="card__title">Event Packages</h3>
 
   <div class="card__content">
-    <div class="services__price-increase">
-      <span class="services__price-increase-icon"><%- include('warning.svg') %></span>
-      <strong>Prices are going up on February 6th. <a href="#book">Book now!</a></strong>
-    </div>
     <div class="services__wrap">
       <% days.forEach(day => { _%>
       <div class="service">

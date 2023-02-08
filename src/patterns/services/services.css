@@ -34,24 +34,6 @@
   }
 }
 
-.services__price-increase {
-  display: flex;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  border-bottom: 1px solid #ccc;
-  padding: 0.5rem;
-  font-size: 1.2em;
-
-  &-icon {
-    display: inline-block;
-    height: 1rem;
-    min-width: 1rem;
-    fill: var(--c-error);
-    margin-right: 0.25em;
-  }
-}
-
 .services__addons .service {
   display: flex;
   flex-direction: column;

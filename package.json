@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel src/pages/index.html src/pages/**/index.html",
+    "test": "playwright test",
     "prebuild": "rimraf dist",
     "build": "parcel build src/pages/index.html src/pages/**/index.html",
     "husky": "husky install"
@@ -14,11 +15,15 @@
     "type": "git",
     "url": "git@bitbucket.org:thezimmee/thelodgeattraverse.git"
   },
-  "workspaces": ["scripts/parcel-transformer-ejs-matter"],
+  "workspaces": [
+    "scripts/parcel-transformer-ejs-matter"
+  ],
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.6.1",
     "@parcel/transformer-inline-string": "^2.6.1",
     "@parcel/transformer-webmanifest": "^2.6.1",
+    "@playwright/test": "^1.41.2",
+    "@types/node": "^20.11.20",
     "autoprefixer": "^10.4.7",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.2",

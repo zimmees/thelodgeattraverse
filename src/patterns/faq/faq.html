@@ -65,14 +65,14 @@
 
 <h2 class="section__title heading"><span>Frequently Asked Questions</span></h2>
 
-<div class="faqs">
+<div class="faqs" aria-label="FAQs">
   <div class="faqs__intro">Click to toggle answers</div>
   <% faqs.forEach(faq => { _%>
-  <details class="faq">
+  <details class="faq" aria-label="FAQ">
     <summary>
-      <h4 class="faq__summary"><%= faq.summary %></h4>
+      <h4 class="faq__summary" role="button" aria-label="FAQ Toggle"><%= faq.summary %></h4>
     </summary>
-    <div class="faq__details"><%- faq.details %></div>
+    <div class="faq__details" aria-label="FAQ Details"><%- faq.details %></div>
   </details>
   <%_ }) %>
 </div>

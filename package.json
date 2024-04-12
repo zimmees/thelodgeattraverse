@@ -9,6 +9,7 @@
     "test": "playwright test",
     "prebuild": "rimraf dist",
     "build": "parcel build src/pages/index.html src/pages/**/index.html",
+    "postinstall": "npx playwright install",
     "husky": "husky install"
   },
   "repository": {

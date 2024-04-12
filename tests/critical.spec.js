@@ -1,7 +1,10 @@
 const { test, expect } = require('@playwright/test');
 
-test('styles look as expected', async ({ page }) => {
-  const maxDiffPixelRatio = 0.001
+test.only('styles look as expected', async ({ page }) => {
+  const options = {
+    maxDiffPixelRatio: 0.001,
+    stylePath: './tests/critical.css'
+  }
 
   // Set viewport.
   page.setViewportSize({
@@ -11,35 +14,35 @@ test('styles look as expected', async ({ page }) => {
 
   // Page banner.
   await page.goto('http://localhost:1234');
-  await expect(page).toHaveScreenshot('page-banner.png', { maxDiffPixelRatio });
+  await expect(page).toHaveScreenshot('page-banner.png', options);
 
   // About section.
   await page.goto('http://localhost:1234#about');
-  await expect(page).toHaveScreenshot('page-about.png', { maxDiffPixelRatio });
+  await expect(page).toHaveScreenshot('page-about.png', options);
 
   // Services section.
   await page.goto('http://localhost:1234#services');
-  await expect(page).toHaveScreenshot('page-services.png', { maxDiffPixelRatio });
+  await expect(page).toHaveScreenshot('page-services.png', options);
 
   // Book section.
   await page.goto('http://localhost:1234#book');
-  await expect(page).toHaveScreenshot('page-book.png', { maxDiffPixelRatio });
+  await expect(page).toHaveScreenshot('page-book.png', options);
 
   // FAQ section.
   await page.goto('http://localhost:1234#faq');
-  await expect(page).toHaveScreenshot('page-faq.png', { maxDiffPixelRatio });
+  await expect(page).toHaveScreenshot('page-faq.png', options);
 
   // Vendors section.
   await page.goto('http://localhost:1234#vendors');
-  await expect(page).toHaveScreenshot('page-vendors.png', { maxDiffPixelRatio });
+  await expect(page).toHaveScreenshot('page-vendors.png', options);
 
   // Contact section.
   await page.goto('http://localhost:1234#contact');
-  await expect(page).toHaveScreenshot('page-contact.png', { maxDiffPixelRatio });
+  await expect(page).toHaveScreenshot('page-contact.png', options);
 
   // Footer section.
   await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
-  await expect(page).toHaveScreenshot('page-footer.png', { maxDiffPixelRatio });
+  await expect(page).toHaveScreenshot('page-footer.png', options);
 })
 
 test('faq toggle open and close', async ({ page }) => {
@@ -49,7 +52,7 @@ test('faq toggle open and close', async ({ page }) => {
   await expect(page.getByText('The Lodge has 100 white')).toBeVisible();
 })
 
-test.only('contact form', async ({ page }) => {
+test('contact form', async ({ page }) => {
   let count = 0;
   const formEndpoint = 'https://submit-form.com/L29wfuP2'
   const formData = {

@@ -1,16 +1,10 @@
 const { test, expect } = require('@playwright/test');
 
-test.only('styles look as expected', async ({ page }) => {
+test('styles look as expected', async ({ page, isMobile }) => {
   const options = {
-    maxDiffPixelRatio: 0.001,
+    maxDiffPixels: isMobile ? 40 : 60,
     stylePath: './tests/critical.css'
   }
-
-  // Set viewport.
-  page.setViewportSize({
-    width: 1280,
-    height: 1024
-  })
 
   // Page banner.
   await page.goto('http://localhost:1234');

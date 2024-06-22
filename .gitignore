@@ -7,8 +7,7 @@ dist/
 .parcel-cache/
 
 ## Test files
-/.test/spec/output
-/.test/spec/results
+/.test-results/
 /test-results/
 /playwright-report/
 /blob-report/

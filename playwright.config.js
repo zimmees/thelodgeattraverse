@@ -59,22 +59,22 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
+    baseURL: 'http://localhost:1234',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
 
   /* Configure output locations. */
-  outputDir: '.test/spec/output',
-  snapshotPathTemplate: '.test/spec/snaps/{projectName}/{testFilePath}/{arg}{ext}',
+  outputDir: '.test-results/spec/output',
+  snapshotPathTemplate: '.test-results/spec/snaps/{projectName}/{testFilePath}/{arg}{ext}',
   testMatch: '*.spec.{js,jsx}',
 
   /* Configure reporting. See https://playwright.dev/docs/test-reporters */
   // reporter: isCI ? 'html' : 'line',
   reporter: [
     ['html', {
-      outputFolder: '.test/spec/results', 
+      outputFolder: '.test-results/spec/results', 
       open: 'never',
     }],
     isCI ? ['github'] : ['line'],
@@ -139,7 +139,7 @@ module.exports = defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: {
     command: 'npm start',
-    url: 'http://127.0.0.1:1234',
+    url: 'http://localhost:1234',
     reuseExistingServer: !isCI,
   },
 });

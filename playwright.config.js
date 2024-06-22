@@ -3,6 +3,13 @@ const { defineConfig, devices } = require('@playwright/test');
 const isCI = !!process.env.CI;
 const useBrowserCat = !!process.env.BROWSERCAT_API_KEY;
 
+const connectOptions = useBrowserCat ? {
+    wsEndpoint: 'wss://api.browsercat.com/connect',
+    headers: {
+      'Api-Key': process.env.BROWSERCAT_API_KEY
+    }
+  } : undefined;
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -45,13 +52,6 @@ module.exports = defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    /* Configure whether to use BrowserCat. */
-    connectOptions: useBrowserCat && {
-      wsEndpoint: 'wss://api.browsercat.com/connect',
-      headers: {
-        'Api-Key': process.env.BROWSERCAT_API_KEY
-      }
-    }
   },
 
   /* Configure output locations. */
@@ -75,7 +75,8 @@ module.exports = defineConfig({
       name: 'Desktop Chrome',
       use: {
         ...devices['Desktop Chrome'],
-        viewport: { width: 1280, height: 1024 }
+        viewport: { width: 1280, height: 1024 },
+        connectOptions
       },
     },
 

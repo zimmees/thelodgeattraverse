@@ -51,8 +51,9 @@ jobs:
       run: npx playwright test --update-snapshots --reporter html
 
     - name: Run browser tests
-      continue-on-error: true
-      run: DEBUG=pw:api npx playwright test
+      run: npx playwright test
+      env:
+        HOME: /root
 
     - name: Upload test report
       if: ${{ !cancelled() }}

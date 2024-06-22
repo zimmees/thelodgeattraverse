@@ -14,3 +14,7 @@ dist/
 
 ## Ignore minimized icons (they are in the html).
 /assets/*.min.svg
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

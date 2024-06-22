@@ -5,10 +5,14 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
+    "// DEV:": "Scripts for development.",
     "start": "parcel src/pages/index.html src/pages/**/index.html",
+    "// TESTS:": "Scripts for testing.",
     "test": "playwright test",
+    "// BUILD:": "Scripts for bundling source code.",
     "prebuild": "rimraf dist",
     "build": "parcel build src/pages/index.html src/pages/**/index.html",
+    "// HELPERS:": "Hooks and other helper scripts that don't typically get called directly.",
     "postinstall": "npx playwright install",
     "husky": "husky install"
   },
@@ -23,7 +27,7 @@
     "@parcel/packager-raw-url": "^2.6.1",
     "@parcel/transformer-inline-string": "^2.6.1",
     "@parcel/transformer-webmanifest": "^2.6.1",
-    "@playwright/test": "^1.41.2",
+    "@playwright/test": "^1.44.1",
     "@types/node": "^20.11.20",
     "autoprefixer": "^10.4.7",
     "husky": "^8.0.1",

@@ -1,16 +1,16 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 const isCI = !!process.env.CI;
-const useBrowserCat = !!process.env.BROWSERCAT_API_KEY;
+// const useBrowserCat = !!process.env.BROWSERCAT_API_KEY;
 
-const connectOptions = useBrowserCat ? {
-    wsEndpoint: 'wss://api.browsercat.com/connect',
-    headers: {
-      'Api-Key': process.env.BROWSERCAT_API_KEY
-    }
-  } : undefined;
+// const connectOptions = useBrowserCat ? {
+//     wsEndpoint: 'wss://api.browsercat.com/connect',
+//     headers: {
+//       'Api-Key': process.env.BROWSERCAT_API_KEY
+//     }
+//   } : undefined;
 
-console.log('BROWSERCAT ENABLED:', useBrowserCat)
+// console.log('BROWSERCAT ENABLED:', useBrowserCat)
 
 /**
  * Read environment variables from file.
@@ -37,16 +37,25 @@ module.exports = defineConfig({
   },
 
   testDir: './tests',
+
   /* Run tests in files in parallel */
   fullyParallel: true,
+  
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: isCI,
+  
   /* Retry on CI only */
-  retries: useBrowserCat || isCI ? 2 : 0,
+  // retries: useBrowserCat || isCI ? 2 : 0,
+  retries: isCI ? 2 : 0,
+  
   /* Opt out of parallel tests on CI. */
-  workers: useBrowserCat ? 10 : isCI ? 1 : '50%',
+  // workers: useBrowserCat ? 10 : isCI ? 1 : '50%',
+  workers: isCI ? 1 : '50%',
+  
   /* # of max failures */
-  maxFailures: useBrowserCat && !isCI ? 0 : 3,
+  // maxFailures: useBrowserCat && !isCI ? 0 : 3,
+  maxFailures: !isCI ? 0 : 3,
+  
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -78,7 +87,7 @@ module.exports = defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 1280, height: 1024 },
-        connectOptions
+        // connectOptions
       },
     },
 

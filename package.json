@@ -9,11 +9,11 @@
     "start": "parcel src/pages/index.html src/pages/**/index.html",
     "// TESTS:": "Scripts for testing.",
     "test": "playwright test",
+    "report": "playwright show-report",
     "// BUILD:": "Scripts for bundling source code.",
     "prebuild": "rimraf dist",
     "build": "parcel build src/pages/index.html src/pages/**/index.html",
     "// HELPERS:": "Hooks and other helper scripts that don't typically get called directly.",
-    "postinstall": "npx playwright install",
     "husky": "husky install"
   },
   "repository": {

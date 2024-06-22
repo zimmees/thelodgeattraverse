@@ -3,7 +3,6 @@ const { test, expect } = require('@playwright/test');
 test('styles look as expected', async ({ page, browserName }) => {
   const isFirefox = browserName === 'firefox';
   const options = {
-    maxDiffPixelRatio: 0.01,
     stylePath: './tests/critical.css'
   }
 

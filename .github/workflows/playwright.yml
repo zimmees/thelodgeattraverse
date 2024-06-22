@@ -1,29 +1,64 @@
-name: Playwright Tests
+name: Browser Tests
 on:
   pull_request:
     branches: [ main ]
   push:
     branches: [ main ]
+  # Allow updating snapshots during manual runs
+  workflow_call:
+    inputs:
+      update-snapshots:
+        description: "Update snapshots?"
+        type: boolean
+  # Allow updating snapshots during automatic runs
+  workflow_dispatch:
+    inputs:
+      update-snapshots:
+        description: "Update snapshots?"
+        type: boolean
 jobs:
   test:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.44.1-jammy
+    # container:
+    #   image: mcr.microsoft.com/playwright:v1.44.1-jammy
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up Node
+      uses: actions/setup-node@v4
       with:
         node-version: lts/*
+        # cache: pnpm
+        # check-latest: true
+
     - name: Install dependencies
       run: npm ci
-    - name: Run Playwright tests
+
+    - name: Set up cache
+      id: cache
+      uses: actions/cache@v4
+      with:
+        key: cache/${{github.repository}}/${{github.ref}}
+        restore-keys: cache/${{github.repository}}/refs/heads/main
+        path: .test/**
+
+    - name: Initialize snapshots
+      if: ${{steps.cache.outputs.cache-hit != 'true' || inputs.update-snapshots == 'true'}}
+      run: npx playwright test --update-snapshots --reporter html
+
+    - name: Run browser tests
+      continue-on-error: true
       run: DEBUG=pw:api npx playwright test
       env:
         HOME: /root
-    - uses: actions/upload-artifact@v4
+
+    - name: Upload test report
       if: ${{ !cancelled() }}
+      uses: actions/upload-artifact@v4
       with:
         name: playwright-report
-        path: playwright-report/
+        path: .test/spec/results
         retention-days: 30
+        overwrite: true

@@ -1,5 +1,7 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+const isCI = !!process.env.CI;
+const useBrowserCat = !!process.env.BROWSERCAT_API_KEY;
 
 /**
  * Read environment variables from file.
@@ -11,17 +13,31 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
+  /* Configure expect defaults */
+  expect: {
+    toHaveScreenshot: {
+      threshold: 0.2,
+      maxDiffPixelRatio: 0.01,
+      maxDiffPixels: 25
+    },
+    toMatchSnapshot: {
+      threshold: 0.2,
+      maxDiffPixelRatio: 0.01,
+      maxDiffPixels: 25
+    },
+  },
+
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!process.env.CI,
+  forbidOnly: isCI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: useBrowserCat || isCI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: process.env.CI ? 'html' : 'line',
+  workers: useBrowserCat ? 10 : isCI ? 1 : '50%',
+  /* # of max failures */
+  maxFailures: useBrowserCat && !isCI ? 0 : 3,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -29,7 +45,29 @@ module.exports = defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    /* Configure whether to use BrowserCat. */
+    connectOptions: useBrowserCat && {
+      wsEndpoint: 'wss://api.browsercat.com/connect',
+      headers: {
+        'Api-Key': process.env.BROWSERCAT_API_KEY
+      }
+    }
   },
+
+  /* Configure output locations. */
+  outputDir: '.test/spec/output',
+  snapshotPathTemplate: '.test/spec/snaps/{projectName}/{testFilePath}/{arg}{ext}',
+  testMatch: '*.spec.{js,jsx}',
+
+  /* Configure reporting. See https://playwright.dev/docs/test-reporters */
+  // reporter: isCI ? 'html' : 'line',
+  reporter: [
+    ['html', {
+      outputFolder: '.test/spec/results', 
+      open: 'never',
+    }],
+    isCI ? ['github'] : ['line'],
+  ],
 
   /* Configure projects for major browsers */
   projects: [
@@ -90,7 +128,7 @@ module.exports = defineConfig({
   webServer: {
     command: 'npm start',
     url: 'http://127.0.0.1:1234',
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !isCI,
   },
 });
 

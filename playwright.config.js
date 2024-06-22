@@ -41,39 +41,39 @@ module.exports = defineConfig({
       },
     },
 
-    {
-      name: 'Desktop Firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-        viewport: { width: 1280, height: 1024 }
-      },
-    },
+    // {
+    //   name: 'Desktop Firefox',
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //     viewport: { width: 1280, height: 1024 }
+    //   },
+    // },
 
-    {
-      name: 'Desktop Safari',
-      use: {
-        ...devices['Desktop Safari'],
-        viewport: { width: 1280, height: 1024 }
-      },
-    },
+    // {
+    //   name: 'Desktop Safari',
+    //   use: {
+    //     ...devices['Desktop Safari'],
+    //     viewport: { width: 1280, height: 1024 }
+    //   },
+    // },
 
-    /* Test against mobile viewports. */
-    {
-      name: 'Mobile Chrome',
-      use: {
-        ...devices['Pixel 5'],
-        // viewport: { width: 1280, height: 1024 },
-        isMobile: true
-      },
-    },
-    {
-      name: 'Mobile Safari',
-      use: {
-        ...devices['iPhone 12'],
-        // viewport: { width: 1280, height: 1024 },
-        isMobile: true
-      },
-    },
+    // /* Test against mobile viewports. */
+    // {
+    //   name: 'Mobile Chrome',
+    //   use: {
+    //     ...devices['Pixel 5'],
+    //     // viewport: { width: 1280, height: 1024 },
+    //     isMobile: true
+    //   },
+    // },
+    // {
+    //   name: 'Mobile Safari',
+    //   use: {
+    //     ...devices['iPhone 12'],
+    //     // viewport: { width: 1280, height: 1024 },
+    //     isMobile: true
+    //   },
+    // },
 
     /* Test against branded browsers. */
     // {

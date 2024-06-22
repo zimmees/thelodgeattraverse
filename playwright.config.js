@@ -10,6 +10,8 @@ const connectOptions = useBrowserCat ? {
     }
   } : undefined;
 
+console.log('BROWSERCAT ENABLED:', useBrowserCat)
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv

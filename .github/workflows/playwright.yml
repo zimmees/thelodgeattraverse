@@ -16,6 +16,8 @@ on:
       update-snapshots:
         description: "Update snapshots?"
         type: boolean
+env:
+  BROWSERCAT_API_KEY: ${{secrets.BROWSERCAT_API_KEY}}
 jobs:
   test:
     timeout-minutes: 10

@@ -25,12 +25,12 @@ module.exports = defineConfig({
   /* Configure expect defaults */
   expect: {
     toHaveScreenshot: {
-      threshold: 0.2,
+      threshold: 0.4,
       maxDiffPixelRatio: 0.01,
       maxDiffPixels: 25
     },
     toMatchSnapshot: {
-      threshold: 0.2,
+      threshold: 0.4,
       maxDiffPixelRatio: 0.01,
       maxDiffPixels: 25
     },

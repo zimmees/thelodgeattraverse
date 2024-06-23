@@ -9,16 +9,19 @@ test('page banner appears as expected', async ({ page }) => {
 })
 
 test('#about section appears as expected', async ({ page }) => {
+  await page.goto('/');
   await page.goto('#about');
   await expect(page).toHaveScreenshot('page-about.png', options);
 })
 
 test('#services section appears as expected', async ({ page }) => {
+  await page.goto('/');
   await page.goto('#services');
   await expect(page).toHaveScreenshot('page-services.png', options);
 })
 
 test('#book section appears as expected', async ({ page }) => {
+  await page.goto('/');
   await page.goto('#book');
   await expect(page).toHaveScreenshot('page-book.png', options);
 })
@@ -26,6 +29,7 @@ test('#book section appears as expected', async ({ page }) => {
 test('#faq section appears as expected', async ({ page, browserName }) => {
   const isFirefox = browserName === 'firefox';
 
+  await page.goto('/');
   await page.goto('#faq');
   await expect(page).toHaveScreenshot('page-faq.png', {
     ...options,
@@ -35,11 +39,13 @@ test('#faq section appears as expected', async ({ page, browserName }) => {
 })
 
 test('#vendors section appears as expected', async ({ page }) => {
+  await page.goto('/');
   await page.goto('#vendors');
   await expect(page).toHaveScreenshot('page-vendors.png', options);
 })
 
 test('#contact section appears as expected', async ({ page }) => {
+  await page.goto('/');
   await page.goto('#contact');
   await expect(page).toHaveScreenshot('page-contact.png', options);
 })
@@ -51,8 +57,10 @@ test('footer section appears as expected', async ({ page }) => {
 })
 
 test('faq toggle open and close', async ({ page }) => {
+  await page.goto('/');
   await page.goto('#faq');
   await expect(page.getByText('The Lodge has 100 white')).not.toBeVisible();
+  await page.getByText('How many guests can The Lodge accommodate?').scrollIntoViewIfNeeded();
   await page.getByText('How many guests can The Lodge accommodate?').click();
   await expect(page.getByText('The Lodge has 100 white')).toBeVisible();
 })
@@ -70,6 +78,7 @@ test('contact form', async ({ page }) => {
   }
 
   // Scroll to contact section.
+  await page.goto('/');
   await page.goto('#contact');
 
   // Mock API calls to: https://submit-form.com/L29wfuP2

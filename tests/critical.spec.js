@@ -4,7 +4,7 @@ const options = {
 }
 
 test('page banner appears as expected', async ({ page }) => {
-  await page.goto('');
+  await page.goto('/');
   await expect(page).toHaveScreenshot('page-banner.png', options);
 })
 
@@ -45,13 +45,13 @@ test('#contact section appears as expected', async ({ page }) => {
 })
 
 test('footer section appears as expected', async ({ page }) => {
-  await page.goto('');
+  await page.goto('/');
   await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
   await expect(page).toHaveScreenshot('page-footer.png', options);
 })
 
 test('faq toggle open and close', async ({ page }) => {
-  await page.goto('');
+  await page.goto('#faq');
   await expect(page.getByText('The Lodge has 100 white')).not.toBeVisible();
   await page.getByText('How many guests can The Lodge accommodate?').click();
   await expect(page.getByText('The Lodge has 100 white')).toBeVisible();

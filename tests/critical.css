@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: initial;
+}
+
 .hide--tests {
   display: none;
 }

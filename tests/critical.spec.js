@@ -1,60 +1,22 @@
 const { test, expect } = require('@playwright/test');
-const options = {
-  stylePath: './tests/critical.css'
-}
 
-test('page banner appears as expected', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveScreenshot('page-banner.png', options);
-})
-
-test('#about section appears as expected', async ({ page }) => {
-  await page.goto('#about');
-  await expect(page).toHaveScreenshot('page-about.png', options);
-})
-
-test('#services section appears as expected', async ({ page }) => {
-  await page.goto('#services');
-  await expect(page).toHaveScreenshot('page-services.png', options);
-})
-
-test('#book section appears as expected', async ({ page }) => {
-  await page.goto('#book');
-  await expect(page).toHaveScreenshot('page-book.png', options);
-})
-
-test('#faq section appears as expected', async ({ page, browserName }) => {
-  const isFirefox = browserName === 'firefox';
-
-  await page.goto('#faq');
-  await expect(page).toHaveScreenshot('page-faq.png', {
-    ...options,
-    maxDiffPixelRatio: isFirefox ? 0.02 : 0.01,
-    threshold: isFirefox ? 0.5 : 0.2
+test('Styles appear as expected', async ({ page }) => {
+  await page.goto('/')
+  await expect(page).toHaveScreenshot('home.png', {
+    fullPage: true,
+    animations: 'disabled',
+    timeout: 10000,
+    mask: [page.locator('iframe')]
   });
 })
 
-test('#vendors section appears as expected', async ({ page }) => {
-  await page.goto('#vendors');
-  await expect(page).toHaveScreenshot('page-vendors.png', options);
-})
-
-test('#contact section appears as expected', async ({ page }) => {
-  await page.goto('#contact');
-  await expect(page).toHaveScreenshot('page-contact.png', options);
-})
-
-test('footer section appears as expected', async ({ page }) => {
-  await page.goto('');
-  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
-  await expect(page).toHaveScreenshot('page-footer.png', options);
-})
-
 test('faq toggle open and close', async ({ page }) => {
-  await page.goto('');
+  await page.goto('/#faq');
   await expect(page.getByText('The Lodge has 100 white')).not.toBeVisible();
   await page.getByText('How many guests can The Lodge accommodate?').click();
   await expect(page.getByText('The Lodge has 100 white')).toBeVisible();
+  await page.getByText('How many guests can The Lodge accommodate?').click();
+  await expect(page.getByText('The Lodge has 100 white')).not.toBeVisible();
 })
 
 test('contact form', async ({ page }) => {
@@ -70,7 +32,7 @@ test('contact form', async ({ page }) => {
   }
 
   // Scroll to contact section.
-  await page.goto('#contact');
+  await page.goto('/#contact');
 
   // Mock API calls to: https://submit-form.com/L29wfuP2
   await page.route(formEndpoint, async (route) => {

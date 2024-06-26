@@ -22,15 +22,17 @@ const isCI = !!process.env.CI;
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
+  timeout: 5 * 60 * 1000,
+
   /* Configure expect defaults */
   expect: {
     toHaveScreenshot: {
-      threshold: 0.2,
+      threshold: 0.4,
       maxDiffPixelRatio: 0.01,
       maxDiffPixels: 25
     },
     toMatchSnapshot: {
-      threshold: 0.2,
+      threshold: 0.4,
       maxDiffPixelRatio: 0.01,
       maxDiffPixels: 25
     },

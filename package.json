@@ -9,11 +9,13 @@
     "start": "parcel src/pages/index.html src/pages/**/index.html",
     "// TESTS:": "Scripts for testing.",
     "test": "playwright test",
-    "report": "playwright show-report",
+    "test:update": "playwright test --update-snapshots",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report .test-results/spec/results",
     "// BUILD:": "Scripts for bundling source code.",
     "prebuild": "rimraf dist",
     "build": "parcel build src/pages/index.html src/pages/**/index.html",
-    "// HELPERS:": "Hooks and other helper scripts that don't typically get called directly.",
+    "// HELPERS:": "Hooks and helper scripts that don't typically get called directly.",
     "husky": "husky install"
   },
   "repository": {

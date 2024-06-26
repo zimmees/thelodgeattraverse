@@ -11,10 +11,12 @@ test('Styles appear as expected', async ({ page }) => {
 })
 
 test('faq toggle open and close', async ({ page }) => {
-  await page.goto('');
+  await page.goto('/#faq');
   await expect(page.getByText('The Lodge has 100 white')).not.toBeVisible();
   await page.getByText('How many guests can The Lodge accommodate?').click();
   await expect(page.getByText('The Lodge has 100 white')).toBeVisible();
+  await page.getByText('How many guests can The Lodge accommodate?').click();
+  await expect(page.getByText('The Lodge has 100 white')).not.toBeVisible();
 })
 
 test('contact form', async ({ page }) => {

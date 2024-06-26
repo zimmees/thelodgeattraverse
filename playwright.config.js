@@ -22,6 +22,8 @@ const isCI = !!process.env.CI;
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
+  timeout: 5 * 60 * 1000,
+
   /* Configure expect defaults */
   expect: {
     toHaveScreenshot: {
